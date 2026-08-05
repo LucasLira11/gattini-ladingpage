@@ -54,8 +54,11 @@ export function Hero() {
           height={1600}
           className="h-full w-full object-cover opacity-95 brightness-125 transition-all duration-[1400ms] hover:brightness-150"
         />
-        <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background via-background/25 to-transparent md:block" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent md:hidden" />
+        {/* Degradê para telas grandes (Desktop) */}
+        <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background via-background/40 to-background/0 md:block" />
+        
+        {/* Degradê corrigido para Mobile (De baixo para cima) */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/0 md:hidden" />
 
         {/* --- ALTERAÇÃO AQUI: Texto com fundo escuro e desfoque --- */}
         <div className="absolute bottom-12 left-8 flex items-center gap-4 md:left-12">

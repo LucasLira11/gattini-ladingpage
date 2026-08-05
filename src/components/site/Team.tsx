@@ -24,7 +24,7 @@ const msgDra = "Olá! Gostaria de saber sobre a disponibilidade de horários par
 export function Team() {
   return (
     <section id="corpo-clinico" className="flex flex-col">
-      
+
       {/* 1º PROFISSIONAL: IMAGEM NA ESQUERDA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row">
         <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
@@ -37,7 +37,7 @@ export function Team() {
             className="h-full w-full object-cover opacity-95 grayscale"
           />
           <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
-          
+
           <div className="absolute right-8 bottom-12 border border-gold/20 bg-background/70 p-8 backdrop-blur-xl md:right-12">
             <div className="mb-1 text-4xl font-extralight text-gold">20+</div>
             <div className="text-[9px] tracking-[0.4em] text-foreground/50 uppercase">
@@ -99,7 +99,7 @@ export function Team() {
             className="h-full w-full object-cover opacity-95 grayscale"
           />
           <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-background/70 via-transparent to-transparent md:block" />
-          
+
           <div className="absolute left-8 bottom-12 border border-gold/20 bg-background/70 p-8 backdrop-blur-xl md:left-12">
             <div className="mb-1 text-4xl font-extralight text-gold">10+</div>
             <div className="text-[9px] tracking-[0.4em] text-foreground/50 uppercase">
