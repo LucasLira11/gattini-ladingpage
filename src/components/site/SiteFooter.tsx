@@ -13,7 +13,7 @@ export function SiteFooter() {
               width={1536}
               height={512}
               loading="lazy"
-              className="h-14 w-auto"
+              className="h-24 w-auto"
             />
             <p className="mt-6 text-[11px] tracking-[0.3em] text-gold uppercase">
               Psicologia <span className="text-foreground/30">.</span> Neuropsicologia{" "}
@@ -30,25 +30,27 @@ export function SiteFooter() {
               <ul className="mt-6 space-y-4 text-sm font-light text-foreground/70">
                 <li className="flex items-center gap-3">
                   <Phone className="size-4 text-gold" strokeWidth={1.5} />
-                  <a href="tel:+551130000000" className="transition-colors hover:text-gold">
-                    +55 (11) 3000-0000
+                  <a href="tel:+55 31 9934-0469" className="transition-colors hover:text-gold">
+                    +55 31 9934-0469
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="size-4 text-gold" strokeWidth={1.5} />
                   <a
-                    href="mailto:contato@clinicagattini.com.br"
+                    href="mailto:clinica@gattini.com.br"
                     className="transition-colors hover:text-gold"
                   >
-                    contato@clinicagattini.com.br
+                    clinica@gattini.com.br
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="mt-0.5 size-4 shrink-0 text-gold" strokeWidth={1.5} />
                   <span>
-                    Av. Brigadeiro Faria Lima, 1000 — Conj. 1200
+                    Av. Prudente de Morais, 840 - Coracao de Jesus
                     <br />
-                    Itaim Bibi, São Paulo — SP
+                    Salas 701 e 702
+                    <br />
+                    Belo Horizonte - MG 
                   </span>
                 </li>
               </ul>
@@ -60,7 +62,7 @@ export function SiteFooter() {
               </h3>
               <ul className="mt-6 space-y-4 text-sm font-light text-foreground/70">
                 <li className="flex items-center gap-3">
-                  <span className="h-px w-4 bg-gold" /> Segunda a sexta, 8h às 20h
+                  <span className="h-px w-4 bg-gold" /> Segunda a sexta, 9h às 21h
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-px w-4 bg-gold" /> Sábados, 9h às 13h

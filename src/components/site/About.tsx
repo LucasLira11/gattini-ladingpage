@@ -1,5 +1,5 @@
-import roomImg from "@/assets/hero-clinic.jpg";
-import detailImg from "@/assets/gallery-1.jpg";
+import roomImg from "@/assets/room-clinic.jpeg";
+import detailImg from "@/assets/G_SIMBOLO_WHITE.png";
 import { Reveal } from "./Reveal";
 
 const pillars = [
@@ -8,6 +8,9 @@ const pillars = [
   ["Continuidade", "Acompanhamento consistente ao longo do tempo."],
   ["Transformação", "Resultados sustentados por método e evidência."],
 ];
+
+// Mensagem pré-formatada para a seção Sobre
+const msgGeral = "Olá! Gostaria de saber sobre a disponibilidade de horários na clínica.";
 
 export function About() {
   return (
@@ -30,7 +33,7 @@ export function About() {
             width={400}
             height={600}
             loading="lazy"
-            className="h-full w-full object-cover grayscale"
+            className="h-full w-full object-cover"
           />
         </div>
       </div>

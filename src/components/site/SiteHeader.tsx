@@ -21,10 +21,10 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${
         scrolled || open
           ? "border-b border-gold/15 bg-background/90 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+          : "bg-gradient-to-b from-background/95 via-background/50 to-transparent pb-4"
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-16 lg:px-24">
@@ -34,7 +34,7 @@ export function SiteHeader() {
             alt="Clínica Gattini"
             width={1536}
             height={512}
-            className="h-10 w-auto"
+            className="h-20 w-auto"
           />
         </a>
 

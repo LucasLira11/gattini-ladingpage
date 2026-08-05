@@ -1,5 +1,7 @@
-import heroImg from "@/assets/hero-clinic.jpg";
+import heroImg from "@/assets/hero-clinic.jpeg";
 import { Reveal } from "./Reveal";
+
+const msgGeral = "Olá! Gostaria de saber sobre a disponibilidade de horários na clínica.";
 
 export function Hero() {
   return (
@@ -27,7 +29,7 @@ export function Hero() {
 
             <div className="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
               <a
-                href="#contato"
+                href={`https://wa.me/553199340469?text=${encodeURIComponent(msgGeral)}`}
                 className="group relative inline-flex items-center gap-4 border border-gold/40 px-8 py-4 text-xs font-bold tracking-[0.2em] text-gold uppercase transition-colors duration-500 hover:border-gold"
               >
                 <span>Agendar Consulta</span>
@@ -55,9 +57,10 @@ export function Hero() {
         <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background via-background/25 to-transparent md:block" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent md:hidden" />
 
+        {/* --- ALTERAÇÃO AQUI: Texto com fundo escuro e desfoque --- */}
         <div className="absolute bottom-12 left-8 flex items-center gap-4 md:left-12">
           <div className="h-12 w-px bg-gold" />
-          <span className="text-[10px] tracking-[0.4em] text-gold uppercase">
+          <span className="bg-background/20 px-3 py-1.5 text-[10px] tracking-[0.4em] text-gold uppercase backdrop-blur-[3px]">
             Psicologia de alto padrão
           </span>
         </div>
