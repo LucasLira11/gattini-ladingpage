@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoWhite from "@/assets/G_SIMBOLO_WHITE.png";
+import logoWhite from "@/assets/GATTINI_LOGO_HORIZONTAL__WHITE_1.png";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
