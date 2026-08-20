@@ -1,4 +1,4 @@
-import portrait from "@/assets/dr-carlos.jpeg";
+import portrait from "@/assets/dr-carlos.jpg";
 import { Reveal } from "./Reveal";
 
 const expertiseDrCarlos = [
