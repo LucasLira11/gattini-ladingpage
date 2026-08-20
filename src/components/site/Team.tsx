@@ -30,8 +30,6 @@ export function Team() {
           <img
             src={portrait}
             alt="Retrato em preto e branco do Dr. Carlos Gattini"
-            width={1024}
-            height={1280}
             loading="lazy"
             className="h-full w-full object-cover opacity-95 grayscale"
           />
