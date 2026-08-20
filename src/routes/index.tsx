@@ -9,7 +9,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clínica Gattini — Psicologia e Neuropsicologia de Alto Padrão" },
+      { title: "Clínica Gattini" },
       {
         name: "description",
         content:
