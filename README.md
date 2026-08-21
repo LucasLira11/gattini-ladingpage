@@ -1,7 +1,3 @@
-Aqui está um texto estruturado, profissional e com foco em resultados, ideal para você usar no seu portfólio, no LinkedIn ou em uma apresentação para o cliente.
-
-Você pode adaptá-lo conforme a necessidade:
-
 💻 Case de Sucesso: Landing Page Premium – Clínica Gattini
 📌 Visão Geral do Projeto
 Desenvolvimento de uma landing page institucional de alto padrão para a Clínica Gattini, um espaço com mais de 20 anos de tradição gerido pelo Dr. Carlos Gattini. O objetivo principal do projeto foi digitalizar a presença da clínica, traduzindo seu legado de excelência técnica e acolhimento humano em uma experiência de navegação moderna, fluida e focada em conversão direta.
