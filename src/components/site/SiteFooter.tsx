@@ -48,7 +48,7 @@ export function SiteFooter() {
                   <span>
                     Av. Prudente de Morais, 840 - Coracao de Jesus
                     <br />
-                    Salas 701 e 702
+                    7.º andar
                     <br />
                     Belo Horizonte - MG 
                   </span>
@@ -62,10 +62,10 @@ export function SiteFooter() {
               </h3>
               <ul className="mt-6 space-y-4 text-sm font-light text-foreground/70">
                 <li className="flex items-center gap-3">
-                  <span className="h-px w-4 bg-gold" /> Segunda a sexta, 9h às 21h
+                  <span className="h-px w-4 bg-gold" /> Segunda a sexta, 8h às 21h
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="h-px w-4 bg-gold" /> Sábados, 9h às 13h
+                  <span className="h-px w-4 bg-gold" /> Sábados, 8h às 13h
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-px w-4 bg-gold" /> Presencial e online
