@@ -1,0 +1,157 @@
+/* ============================================================
+   Exportar um tutorial em PDF.
+
+   Sem biblioteca: usamos a impressão do próprio navegador, que já
+   oferece "Salvar como PDF" no computador e no celular. O texto sai
+   vetorial e selecionável, e o arquivo fica leve.
+
+   Ao clicar em PDF, o componente marca <body class="modo-impressao">
+   e o tutorial escolhido com .print-alvo. Só ele vai para o papel.
+   ============================================================ */
+
+.print-apenas {
+  display: none;
+}
+
+@media print {
+  @page {
+    margin: 14mm 14mm 16mm;
+  }
+
+  /* Papel é branco. Sem isto, quem marcar "imprimir gráficos de fundo"
+     leva o azul-noite do site para a folha inteira. */
+  html,
+  body.modo-impressao {
+    background: #ffffff !important;
+  }
+
+  /* Some com tudo, e traz de volta só o tutorial escolhido.
+     visibility preserva o layout interno, ao contrário de display. */
+  body.modo-impressao * {
+    visibility: hidden !important;
+  }
+
+  body.modo-impressao .print-alvo,
+  body.modo-impressao .print-alvo * {
+    visibility: visible !important;
+  }
+
+  body.modo-impressao .print-alvo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Papel branco: a paleta escura do site não serve para impressão. */
+  body.modo-impressao .print-alvo {
+    --background: #ffffff;
+    --navy: #ffffff;
+    --navy-soft: #ffffff;
+    --card: #ffffff;
+    --foreground: #1f2430;
+    --offwhite: #101420;
+    --muted-foreground: #3d4454;
+    --gold: #8a6a1f;
+    --gold-soft: #8a6a1f;
+    --ink: #3d4454;
+    --border: rgba(0, 0, 0, 0.18);
+
+    background: #ffffff !important;
+    color: #1f2430 !important;
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+
+  /* Controles de tela não existem no papel. */
+  body.modo-impressao .print-alvo .nao-imprimir {
+    display: none !important;
+  }
+
+  body.modo-impressao .print-alvo .print-apenas {
+    display: block;
+  }
+
+  /* Cabeçalho da folha: marca da clínica e identificação do material. */
+  body.modo-impressao .print-alvo .print-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 10px;
+    margin-bottom: 22px;
+    border-bottom: 1.5px solid #8a6a1f;
+  }
+
+  body.modo-impressao .print-alvo .print-cabecalho img {
+    height: 34px;
+    width: auto;
+  }
+
+  body.modo-impressao .print-alvo .print-eyebrow {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8a6a1f;
+    text-align: right;
+  }
+
+  body.modo-impressao .print-alvo .print-titulo {
+    font-size: 19pt;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #101420;
+    margin: 0 0 6px;
+  }
+
+  body.modo-impressao .print-alvo .print-resumo {
+    font-size: 10pt;
+    color: #3d4454;
+    margin: 0 0 20px;
+    max-width: 52em;
+  }
+
+  body.modo-impressao .print-alvo .print-rodape {
+    margin-top: 26px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 7.5pt;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  /* Nada de quebrar um passo ou um bloco no meio. */
+  body.modo-impressao .print-alvo li,
+  body.modo-impressao .print-alvo .print-bloco {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* A moldura do nome literal da tela precisa de contraste no papel. */
+  body.modo-impressao .print-alvo .tecla {
+    border-color: rgba(0, 0, 0, 0.35) !important;
+    background: #f1f2f4 !important;
+    color: #101420 !important;
+  }
+
+  /* Links impressos mostram o endereço, já que não dá para clicar.
+     Caixa alta atrapalha a leitura de URL, então volta ao normal. */
+  body.modo-impressao .print-alvo .print-link {
+    text-transform: none !important;
+    letter-spacing: 0.01em !important;
+    font-weight: 600 !important;
+  }
+
+  body.modo-impressao .print-alvo .print-link::after {
+    content: " " attr(href);
+    text-transform: none;
+    font-weight: 400;
+    font-size: 7.5pt;
+    color: #6b7280;
+    word-break: break-all;
+  }
+}

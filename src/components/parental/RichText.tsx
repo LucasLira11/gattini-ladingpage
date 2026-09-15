@@ -33,7 +33,7 @@ export function RichText({ children }: { children: string }) {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold underline decoration-gold/30 underline-offset-4 transition-colors hover:decoration-gold"
+              className="print-link text-gold underline decoration-gold/30 underline-offset-4 transition-colors hover:decoration-gold"
             >
               {label}
             </a>
@@ -55,7 +55,7 @@ export function RichText({ children }: { children: string }) {
 /** Texto exatamente como aparece escrito na tela do aparelho. */
 export function Tecla({ children }: { children: ReactNode }) {
   return (
-    <span className="mx-px inline-block border border-gold/25 bg-navy px-1.5 py-px align-baseline text-[0.92em] font-semibold text-offwhite/90">
+    <span className="tecla mx-px inline-block border border-gold/25 bg-navy px-1.5 py-px align-baseline text-[0.92em] font-semibold text-offwhite/90">
       {children}
     </span>
   );

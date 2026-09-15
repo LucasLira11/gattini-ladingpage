@@ -6,6 +6,7 @@ import { Marca } from "./Marca";
 import { TutorialCard } from "./TutorialCard";
 import { tutoriaisGuia } from "./data/guia";
 import { tutoriaisPlataformas } from "./data/plataformas";
+import "./print.css";
 
 const TODOS: Tutorial[] = [...tutoriaisGuia, ...tutoriaisPlataformas];
 
@@ -113,6 +114,7 @@ export function CentralTutoriais() {
               tutorial={t}
               aberto={aberto === t.id}
               onAlternar={() => setAberto((atual) => (atual === t.id ? null : t.id))}
+              onAbrir={() => setAberto(t.id)}
             />
           ))}
           {filtrados.length === 0 && (
