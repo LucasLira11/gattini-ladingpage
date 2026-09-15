@@ -3,9 +3,10 @@ import { Menu, X } from "lucide-react";
 import logoWhite from "@/assets/GATTINI_LOGO_HORIZONTAL__WHITE_1.png";
 
 const links = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#especialidades", label: "Especialidades" },
-  { href: "#corpo-clinico", label: "Corpo Clínico" },
+  { href: "/#sobre", label: "Sobre" },
+  { href: "/#especialidades", label: "Especialidades" },
+  { href: "/#corpo-clinico", label: "Corpo Clínico" },
+  { href: "/controle-parental", label: "Controle Parental" },
 ];
 
 export function SiteHeader() {
@@ -28,7 +29,7 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-16 lg:px-24">
-        <a href="#top" className="flex items-center" aria-label="Clínica Gattini — início">
+        <a href="/" className="flex items-center" aria-label="Clínica Gattini — início">
           <img
             src={logoWhite}
             alt="Clínica Gattini"
@@ -48,7 +49,7 @@ export function SiteHeader() {
             </a>
           ))}
           <a
-            href="#contato"
+            href="/#contato"
             className="group inline-flex items-center gap-3 border border-gold/40 px-6 py-3 text-[11px] font-bold tracking-[0.2em] text-gold uppercase transition-colors duration-500 hover:border-gold"
           >
             Agendar Consulta
@@ -80,7 +81,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href="#contato"
+              href="/#contato"
               onClick={() => setOpen(false)}
               className="inline-flex w-fit items-center gap-3 border border-gold/40 px-6 py-3 text-[11px] font-bold tracking-[0.2em] text-gold uppercase"
             >

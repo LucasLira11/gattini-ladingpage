@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ControleParentalRouteImport } from './routes/controle-parental'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ControleParentalRoute = ControleParentalRouteImport.update({
+  id: '/controle-parental',
+  path: '/controle-parental',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,24 +25,28 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/controle-parental': typeof ControleParentalRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/controle-parental': typeof ControleParentalRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/controle-parental': typeof ControleParentalRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/controle-parental'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/controle-parental'
+  id: '__root__' | '/' | '/controle-parental'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ControleParentalRoute: typeof ControleParentalRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/controle-parental': {
+      id: '/controle-parental'
+      path: '/controle-parental'
+      fullPath: '/controle-parental'
+      preLoaderRoute: typeof ControleParentalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ControleParentalRoute: ControleParentalRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
