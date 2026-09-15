@@ -20,8 +20,7 @@ export function ParentalHero() {
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed font-light text-foreground/70">
               Os aplicativos que fazem o trabalho pesado sozinhos — filtro do Wi-Fi, horário de
-              dormir e limite por aplicativo — escolhidos para quem não tem paciência com
-              configuração.
+              dormir e limite por aplicativo.
             </p>
 
             <div className="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
