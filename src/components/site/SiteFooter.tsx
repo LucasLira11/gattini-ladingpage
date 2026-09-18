@@ -10,9 +10,10 @@ export function SiteFooter() {
             <img
               src={logoWhite}
               alt="Clínica Gattini"
-              width={1536}
-              height={512}
+              width={938}
+              height={322}
               loading="lazy"
+              decoding="async"
               className="h-24 w-auto"
             />
             <p className="mt-6 text-[11px] tracking-[0.3em] text-gold uppercase">
@@ -50,7 +51,7 @@ export function SiteFooter() {
                     <br />
                     7.º andar
                     <br />
-                    Belo Horizonte - MG 
+                    Belo Horizonte - MG
                   </span>
                 </li>
               </ul>

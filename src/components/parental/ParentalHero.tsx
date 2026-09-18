@@ -1,7 +1,8 @@
 import { ShieldCheck } from "lucide-react";
 import { Reveal } from "../site/Reveal";
 import { RichText } from "./RichText";
-import { notaClinica } from "./data/conteudo";
+import { MaisInfo } from "./MaisInfo";
+import { notaClinica, notaClinicaResumo } from "./data/conteudo";
 
 export function ParentalHero() {
   return (
@@ -43,13 +44,18 @@ export function ParentalHero() {
           <Reveal delay={150}>
             <aside className="border border-gold/15 bg-card p-8 md:p-10">
               <ShieldCheck className="size-6 text-gold" strokeWidth={1.25} />
-              <div className="mt-6 space-y-5">
-                {notaClinica.map((p, i) => (
-                  <p key={i} className="text-base leading-relaxed font-light text-foreground/65">
-                    <RichText>{p}</RichText>
-                  </p>
-                ))}
-              </div>
+              <p className="mt-6 text-base leading-relaxed font-light text-foreground/65">
+                <RichText>{notaClinicaResumo}</RichText>
+              </p>
+              <MaisInfo rotulo="Como ajustar por idade" className="mt-7">
+                <div className="space-y-5">
+                  {notaClinica.map((p, i) => (
+                    <p key={i} className="text-base leading-relaxed font-light text-foreground/60">
+                      <RichText>{p}</RichText>
+                    </p>
+                  ))}
+                </div>
+              </MaisInfo>
             </aside>
           </Reveal>
         </div>

@@ -11,10 +11,7 @@ import "./print.css";
 const TODOS: Tutorial[] = [...tutoriaisGuia, ...tutoriaisPlataformas];
 
 function normalizar(texto: string) {
-  return texto
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
+  return texto.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
 export function CentralTutoriais() {
@@ -43,9 +40,8 @@ export function CentralTutoriais() {
             Escolha a plataforma e siga o <span className="italic">passo a passo</span>.
           </h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed font-light text-foreground/60">
-            Celulares, computadores, videogames e serviços de streaming. Cada tutorial traz o que
-            você precisa ter em mãos antes de começar, os passos numerados, como confirmar que
-            funcionou e o que aquela configuração não resolve.
+            Celulares, computadores, videogames e streaming — passo a passo, com botão para salvar
+            em PDF.
           </p>
           <div className="mt-10 h-px w-24 bg-gold/50" />
         </Reveal>

@@ -3,6 +3,7 @@ import { AlertCircle, ChevronRight, Eye, ExternalLink, FileDown, Minus } from "l
 import type { Tutorial } from "./types";
 import { RichText } from "./RichText";
 import { Marca } from "./Marca";
+import { isolarParaImpressao } from "./isolarParaImpressao";
 
 export function TutorialCard({
   tutorial,
@@ -42,9 +43,13 @@ export function TutorialCard({
   // Exportar em PDF = imprimir só esta ficha. A ficha precisa estar aberta
   // antes, porque o conteúdo só existe no DOM quando está expandida.
   useEffect(() => {
-    if (!imprimindo || !aberto) return;
+    const ficha = ref.current;
+    if (!imprimindo || !aberto || !ficha) return;
 
     document.body.classList.add("modo-impressao");
+    // Poda o resto da página do layout. Sem isto o documento mantém a altura
+    // do site inteiro e o PDF sai com folhas em branco depois do tutorial.
+    const restaurar = isolarParaImpressao(ficha);
 
     const encerrar = () => setImprimindo(false);
     window.addEventListener("afterprint", encerrar);
@@ -57,6 +62,7 @@ export function TutorialCard({
       window.clearTimeout(id);
       window.removeEventListener("afterprint", encerrar);
       window.removeEventListener("focus", encerrar);
+      restaurar();
       document.body.classList.remove("modo-impressao");
     };
   }, [imprimindo, aberto]);
@@ -77,7 +83,14 @@ export function TutorialCard({
       {/* Cabeçalho da folha impressa */}
       <div className="print-apenas">
         <div className="print-cabecalho">
-          <img src="/GATTINI_LOGO_HORIZONTAL_COLOR_1.png" alt="Clínica Gattini" />
+          <img
+            src="/GATTINI_LOGO_HORIZONTAL_COLOR_1.png"
+            alt="Clínica Gattini"
+            width={1996}
+            height={585}
+            loading="lazy"
+            decoding="async"
+          />
           <span className="print-eyebrow">
             Controle parental
             <br />

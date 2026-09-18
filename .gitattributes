@@ -1,0 +1,12 @@
+# O repositório guarda tudo com LF. Sem isto, um checkout no Windows converte
+# os arquivos para CRLF e o Prettier acusa erro em todas as linhas do projeto.
+* text=auto eol=lf
+
+# Binários não passam por conversão de fim de linha.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg text eol=lf
+*.ico binary
+*.woff binary
+*.woff2 binary

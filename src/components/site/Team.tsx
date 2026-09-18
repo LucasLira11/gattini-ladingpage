@@ -17,22 +17,24 @@ const expertiseProfissional2 = [
 ];
 
 // Mensagens pré-formatadas (URL Encoded) para o WhatsApp
-const msgDrCarlos = "Olá! Gostaria de saber sobre a disponibilidade de horários para o Dr. Carlos Gattini.";
-const msgDra = "Olá! Gostaria de saber sobre a disponibilidade de horários para a Dra. Nome Sobrenome.";
+const msgDrCarlos =
+  "Olá! Gostaria de saber sobre a disponibilidade de horários para o Dr. Carlos Gattini.";
+const msgDra =
+  "Olá! Gostaria de saber sobre a disponibilidade de horários para a Dra. Nome Sobrenome.";
 
 export function Team() {
   return (
     <section id="corpo-clinico" className="flex flex-col">
-
       {/* 1º PROFISSIONAL: IMAGEM NA ESQUERDA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row">
         <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
           <img
             src={portrait}
             alt="Retrato em preto e branco do Dr. Carlos Gattini"
-            width={1024}
-            height={1280}
+            width={1600}
+            height={1195}
             loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover opacity-95 grayscale"
           />
           <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
@@ -48,7 +50,9 @@ export function Team() {
         <div className="flex w-full items-center justify-center bg-background px-6 py-24 md:w-1/2 md:px-16 md:py-28 lg:px-24">
           <Reveal className="max-w-xl">
             <span className="eyebrow mb-6 block">Corpo Clínico</span>
-            <h2 className="text-3xl leading-tight font-light md:text-[2.9rem]">Dr. Carlos Gattini</h2>
+            <h2 className="text-3xl leading-tight font-light md:text-[2.9rem]">
+              Dr. Carlos Gattini
+            </h2>
             <p className="mt-3 text-[11px] tracking-[0.3em] text-gold uppercase">
               Fundador e Diretor Clínico
             </p>
@@ -61,7 +65,10 @@ export function Team() {
 
             <ul className="mt-12 space-y-5 border-t border-gold/20 pt-10">
               {expertiseDrCarlos.map((e) => (
-                <li key={e} className="flex items-start gap-4 text-sm font-light text-foreground/70">
+                <li
+                  key={e}
+                  className="flex items-start gap-4 text-sm font-light text-foreground/70"
+                >
                   <span className="mt-2.5 h-px w-5 shrink-0 bg-gold" />
                   {e}
                 </li>
@@ -76,7 +83,16 @@ export function Team() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-gold/50 px-6 py-3 text-sm font-medium tracking-wide text-gold transition-all hover:bg-gold hover:text-background"
               >
-                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                 </svg>
                 Agendar com o Dr. Carlos
@@ -85,7 +101,6 @@ export function Team() {
           </Reveal>
         </div>
       </article>
-
     </section>
   );
 }

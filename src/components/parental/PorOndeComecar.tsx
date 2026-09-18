@@ -1,5 +1,6 @@
 import { Reveal } from "../site/Reveal";
 import { RichText } from "./RichText";
+import { MaisInfo } from "./MaisInfo";
 import { porOndeComecar, rodapeAvisos } from "./data/conteudo";
 
 export function PorOndeComecar() {
@@ -16,8 +17,7 @@ export function PorOndeComecar() {
               Por onde <span className="italic">começar</span>.
             </h2>
             <p className="mt-8 max-w-sm text-lg leading-relaxed font-light text-foreground/60">
-              A ordem abaixo entrega o maior ganho com o menor esforço. Vale a pena fazer com a
-              criança do lado, explicando cada escolha.
+              Maior ganho, menor esforço — nesta ordem. De preferência com a criança do lado.
             </p>
             <div className="mt-10 h-px w-24 bg-gold/50" />
           </Reveal>
@@ -38,12 +38,19 @@ export function PorOndeComecar() {
           </Reveal>
         ))}
 
-        <div className="space-y-4 border-t border-gold/10 px-6 py-10 md:px-16 lg:px-20">
-          {rodapeAvisos.map((aviso, i) => (
-            <p key={i} className="max-w-xl text-xs leading-relaxed font-light text-foreground/40">
-              {aviso}
-            </p>
-          ))}
+        <div className="border-t border-gold/10 px-6 py-10 md:px-16 lg:px-20">
+          <MaisInfo rotulo="Avisos e isenções">
+            <div className="space-y-4">
+              {rodapeAvisos.map((aviso, i) => (
+                <p
+                  key={i}
+                  className="max-w-xl text-xs leading-relaxed font-light text-foreground/40"
+                >
+                  {aviso}
+                </p>
+              ))}
+            </div>
+          </MaisInfo>
         </div>
       </div>
     </section>

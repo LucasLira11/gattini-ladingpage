@@ -1,4 +1,13 @@
-/** Conteúdo do guia, mantido exatamente como foi aprovado. */
+/**
+ * Conteúdo do guia, mantido exatamente como foi aprovado.
+ *
+ * A página mostra por padrão só os resumos daqui; o texto integral fica a um
+ * clique, dentro de um <details>. Nada foi cortado — apenas dobrado.
+ */
+
+/** Uma linha por bloco, para quem só vai passar o olho. */
+export const notaClinicaResumo =
+  "Controle parental **apoia um combinado — não substitui a conversa.** Funciona muito melhor quando a criança sabe o que foi ativado e por quê.";
 
 export const notaClinica = [
   "**Antes de instalar qualquer coisa:** controle parental é apoio a um combinado, não substituto dele. O efeito é muito melhor quando a criança ou o adolescente sabe o que foi ativado e por quê — inclusive porque a configuração feita às escondidas, quando descoberta (e costuma ser), custa mais confiança do que o problema que tentava resolver.",

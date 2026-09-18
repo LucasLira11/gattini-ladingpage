@@ -1,6 +1,7 @@
 import { Check, ExternalLink, Minus } from "lucide-react";
 import { Reveal } from "../site/Reveal";
 import { Marca } from "./Marca";
+import { MaisInfo } from "./MaisInfo";
 import { camadas, colunasTabela, escolhas, linhasTabela } from "./data/conteudo";
 
 export function Ferramentas() {
@@ -15,9 +16,8 @@ export function Ferramentas() {
               As quatro que <span className="italic">valem a pena</span>.
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed font-light text-foreground/60">
-              Existem dezenas de opções. Estas quatro cobrem praticamente todos os arranjos de
-              família, e todas são operadas por um aplicativo no celular do responsável — sem entrar
-              em menu de roteador, sem números para digitar.
+              Todas se operam por um aplicativo no celular do responsável. Sem menu de roteador, sem
+              números para digitar.
             </p>
             <div className="mt-10 h-px w-24 bg-gold/50" />
           </Reveal>
@@ -51,23 +51,28 @@ export function Ferramentas() {
                     ))}
                   </ul>
 
-                  <ul className="mt-8 space-y-2.5">
-                    {e.mais.map((m) => (
-                      <li key={m} className="flex gap-3 text-sm leading-relaxed font-light">
-                        <Check className="mt-1 size-3.5 shrink-0 text-gold" strokeWidth={2.5} />
-                        <span className="text-foreground/65">{m}</span>
-                      </li>
-                    ))}
-                    {e.menos.map((m) => (
-                      <li key={m} className="flex gap-3 text-sm leading-relaxed font-light">
-                        <Minus
-                          className="mt-1 size-3.5 shrink-0 text-foreground/35"
-                          strokeWidth={2.5}
-                        />
-                        <span className="text-foreground/45">{m}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <MaisInfo
+                    rotulo={`Prós e contras (${e.mais.length + e.menos.length})`}
+                    className="mt-8"
+                  >
+                    <ul className="space-y-2.5">
+                      {e.mais.map((m) => (
+                        <li key={m} className="flex gap-3 text-sm leading-relaxed font-light">
+                          <Check className="mt-1 size-3.5 shrink-0 text-gold" strokeWidth={2.5} />
+                          <span className="text-foreground/65">{m}</span>
+                        </li>
+                      ))}
+                      {e.menos.map((m) => (
+                        <li key={m} className="flex gap-3 text-sm leading-relaxed font-light">
+                          <Minus
+                            className="mt-1 size-3.5 shrink-0 text-foreground/35"
+                            strokeWidth={2.5}
+                          />
+                          <span className="text-foreground/45">{m}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </MaisInfo>
 
                   <div className="mt-auto pt-8">
                     <div className="flex flex-wrap gap-2.5">
@@ -104,8 +109,8 @@ export function Ferramentas() {
               Nenhuma delas resolve <span className="italic">sozinha</span>.
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed font-light text-foreground/60">
-              Cada ferramenta cobre um pedaço. O arranjo mais comum — e suficiente para a grande
-              maioria — é uma da primeira coluna somada a uma da segunda.
+              Cada uma cobre um pedaço. Para a grande maioria das famílias, uma da primeira coluna
+              somada a uma da segunda basta.
             </p>
           </Reveal>
 
@@ -139,8 +144,7 @@ export function Ferramentas() {
               Quem faz <span className="italic">o quê</span>.
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed font-light text-foreground/60">
-              Encontre a coluna que corresponde à sua queixa principal e escolha uma linha que marque
-              “sim” nela.
+              Ache a coluna da sua queixa principal e escolha uma linha que marque “sim” nela.
             </p>
           </Reveal>
 
@@ -169,12 +173,7 @@ export function Ferramentas() {
                     >
                       <th scope="row" className="px-6 py-5 text-left font-normal">
                         <span className="flex items-center gap-4">
-                          <Marca
-                            marca={l.marca}
-                            letra={l.letra}
-                            icone={l.icone}
-                            tamanho="sm"
-                          />
+                          <Marca marca={l.marca} letra={l.letra} icone={l.icone} tamanho="sm" />
                           <span>
                             <span className="block text-base font-light text-offwhite">
                               {l.nome}
@@ -248,7 +247,9 @@ function Valor({
       ) : (
         <Minus className="size-3.5 shrink-0 text-foreground/30" strokeWidth={2.5} />
       )}
-      <span className={`text-sm font-light ${positivo ? "text-foreground/75" : "text-foreground/40"}`}>
+      <span
+        className={`text-sm font-light ${positivo ? "text-foreground/75" : "text-foreground/40"}`}
+      >
         {texto}
         {nota && <span className="block text-xs text-foreground/35">{nota}</span>}
       </span>

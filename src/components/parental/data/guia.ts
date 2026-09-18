@@ -244,7 +244,8 @@ export const tutoriaisGuia: Tutorial[] = [
     categoria: "rede",
     marca: "nextdns",
     titulo: "NextDNS — filtro por categoria",
-    resumo: "O filtro mais abrangente. Tem dois passos técnicos, mas você faz uma vez só e esquece.",
+    resumo:
+      "O filtro mais abrangente. Tem dois passos técnicos, mas você faz uma vez só e esquece.",
     antes: [
       "Um computador para a configuração inicial — o painel funciona melhor em tela grande.",
       "O painel do site é em inglês. Os nomes que você precisa estão escritos abaixo, em inglês, exatamente como aparecem.",

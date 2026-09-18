@@ -50,13 +50,15 @@ export function Hero() {
         <img
           src={heroImg}
           alt="Sala de atendimento da Clínica Gattini em tons escuros, com poltrona de couro e luminária de latão"
-          width={1200}
-          height={1600}
+          width={1600}
+          height={1200}
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full object-cover opacity-95 brightness-125 transition-all duration-[1400ms] hover:brightness-150"
         />
         {/* Degradê para telas grandes (Desktop) */}
         <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background via-background/40 to-background/0 md:block" />
-        
+
         {/* Degradê corrigido para Mobile (De baixo para cima) */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/0 md:hidden" />
 

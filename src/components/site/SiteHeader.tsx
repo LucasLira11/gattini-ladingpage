@@ -33,6 +33,10 @@ export function SiteHeader() {
           <img
             src={logoWhite}
             alt="Clínica Gattini"
+            width={938}
+            height={322}
+            fetchPriority="high"
+            decoding="async"
             className="h-20 w-auto"
           />
         </a>

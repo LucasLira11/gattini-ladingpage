@@ -5,8 +5,11 @@
    oferece "Salvar como PDF" no computador e no celular. O texto sai
    vetorial e selecionável, e o arquivo fica leve.
 
-   Ao clicar em PDF, o componente marca <body class="modo-impressao">
-   e o tutorial escolhido com .print-alvo. Só ele vai para o papel.
+   Ao clicar em PDF, o componente marca <body class="modo-impressao">,
+   marca o tutorial escolhido com .print-alvo e chama isolarParaImpressao,
+   que poda do layout tudo o que não está no caminho até ele. As regras
+   abaixo cuidam da aparência no papel; a poda é o que garante que o PDF
+   não venha com folhas em branco depois do conteúdo.
    ============================================================ */
 
 .print-apenas {
@@ -23,27 +26,42 @@
   html,
   body.modo-impressao {
     background: #ffffff !important;
+    height: auto !important;
+    min-height: 0 !important;
   }
 
-  /* Some com tudo, e traz de volta só o tutorial escolhido.
-     visibility preserva o layout interno, ao contrário de display. */
-  body.modo-impressao * {
-    visibility: hidden !important;
+  /* Tudo o que ficou fora do caminho até a ficha sai do layout. display
+     (e não visibility) é o que faz o documento encolher para a altura do
+     conteúdo — é daqui que vem a ausência de páginas em branco. */
+  body.modo-impressao [data-print-oculto] {
+    display: none !important;
   }
 
-  body.modo-impressao .print-alvo,
-  body.modo-impressao .print-alvo * {
-    visibility: visible !important;
+  /* Os ancestrais da ficha continuam no documento, então o respiro que eles
+     dão na tela — seções de 7rem, faixas coloridas, larguras máximas —
+     viraria espaço morto no papel. */
+  body.modo-impressao[data-print-cadeia],
+  body.modo-impressao [data-print-cadeia] {
+    display: block !important;
+    position: static !important;
+    overflow: visible !important;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
   body.modo-impressao .print-alvo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    margin: 0;
+    margin: 0 !important;
     border: 0 !important;
     box-shadow: none !important;
+    break-before: avoid;
+    break-after: avoid;
   }
 
   /* Papel branco: a paleta escura do site não serve para impressão. */

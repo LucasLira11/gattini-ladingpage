@@ -182,10 +182,7 @@ export const tutoriaisPlataformas: Tutorial[] = [
     titulo: "HBO Max — perfil infantil e bloqueio",
     resumo:
       "Aparece como HBO Max ou Max, dependendo da versão do app. O caminho é o mesmo nos dois.",
-    antes: [
-      "A conta aberta no navegador ou no app, no perfil principal.",
-      "Um PIN de 4 dígitos.",
-    ],
+    antes: ["A conta aberta no navegador ou no app, no perfil principal.", "Um PIN de 4 dígitos."],
     passos: [
       "Abra o menu do seu perfil › [[Configurações]] › [[Perfis]] › [[Gerenciar perfis]].",
       "Crie um perfil para a criança marcando [[É uma criança]] e informando a data de nascimento. A interface fica simplificada e o catálogo, filtrado.",
@@ -210,7 +207,10 @@ export const tutoriaisPlataformas: Tutorial[] = [
     titulo: "Globoplay — classificação e perfil Kids",
     resumo:
       "Mistura novela, jornalismo e conteúdo infantil no mesmo lugar, então o perfil separado faz bastante diferença.",
-    antes: ["A conta aberta no app ou no site.", "Uma senha de 4 dígitos para o controle dos pais."],
+    antes: [
+      "A conta aberta no app ou no site.",
+      "Uma senha de 4 dígitos para o controle dos pais.",
+    ],
     passos: [
       "Abra o menu › [[Perfis]] e crie um perfil para a criança marcando a opção [[Kids]] ou informando a idade.",
       "Vá em [[Configurações]] › [[Controle dos pais]] e crie a senha numérica.",
@@ -259,9 +259,7 @@ export const tutoriaisPlataformas: Tutorial[] = [
       "O chat de voz de terceiros (Discord, por exemplo) fica fora disso — é outro app, com outra configuração.",
       "Filtros de texto não pegam tudo: combine com a conversa sobre o que fazer se alguém pedir dados ou fotos.",
     ],
-    links: [
-      { label: "Controles dos pais Roblox", url: "https://en.help.roblox.com/hc/pt-br" },
-    ],
+    links: [{ label: "Controles dos pais Roblox", url: "https://en.help.roblox.com/hc/pt-br" }],
   },
   {
     id: "tutorial-tiktok",
