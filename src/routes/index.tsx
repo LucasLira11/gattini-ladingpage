@@ -4,6 +4,8 @@ import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
 import { Specialties } from "@/components/site/Specialties";
 import { Team } from "@/components/site/Team";
+import { ComoChegar } from "@/components/site/ComoChegar";
+import { dadosEstruturadosDaClinica } from "@/lib/dados-estruturados";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
 export const Route = createFileRoute("/")({
@@ -25,6 +27,12 @@ export const Route = createFileRoute("/")({
           "Ciência para compreender. Humanidade para acolher. Excelência para permanecer. Clínica fundada pelo Dr. Carlos Gattini.",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: dadosEstruturadosDaClinica,
+      },
+    ],
   }),
   component: Index,
 });
@@ -38,6 +46,7 @@ function Index() {
         <About />
         <Specialties />
         <Team />
+        <ComoChegar />
       </main>
       <SiteFooter />
     </div>
