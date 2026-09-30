@@ -1,8 +1,7 @@
 import { Building2, Clock, MessageCircle, Navigation, Phone, Star } from "lucide-react";
 import { Reveal } from "./Reveal";
 
-const ENDERECO = "Av. Prudente de Morais, 840 — Coração de Jesus, Belo Horizonte – MG";
-const ANDAR = "7.º andar";
+const ENDERECO = "Av. Prudente de Morais, 840 — 7.º andar · Coração de Jesus, Belo Horizonte – MG";
 
 /**
  * Rota por link, e não por mapa embutido.
@@ -52,8 +51,7 @@ export function ComoChegar() {
               Como <span className="italic">chegar</span>.
             </h2>
             <p className="mt-8 max-w-sm text-lg leading-relaxed font-light text-foreground/60">
-              A clínica fica no {ANDAR} — suba direto, sem passar pela portaria de nenhuma outra
-              unidade.
+              O botão de rota abre o mapa com a navegação pronta, a partir de onde você estiver.
             </p>
             <div className="mt-10 h-px w-24 bg-gold/50" />
           </Reveal>
@@ -70,7 +68,6 @@ export function ComoChegar() {
             <p className="mt-5 max-w-md text-xl leading-relaxed font-light text-offwhite">
               {ENDERECO}
             </p>
-            <p className="mt-2 text-base font-light text-foreground/60">{ANDAR}</p>
 
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <a
@@ -96,10 +93,6 @@ export function ComoChegar() {
                 </a>
               )}
             </div>
-
-            <p className="mt-6 text-xs font-light text-foreground/40">
-              O botão abre o Google Maps com a rota a partir de onde você estiver.
-            </p>
           </div>
         </Reveal>
 

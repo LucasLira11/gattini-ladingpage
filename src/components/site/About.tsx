@@ -33,7 +33,10 @@ export function About() {
             object-contain, e não cover: a moldura é em pé e a marca é deitada,
             então cover cortaria o monograma pelas laterais. O brandbook não
             admite a marca alterada. */}
-        <div className="absolute top-1/2 left-1/2 hidden h-64 w-48 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-gold/30 p-6 lg:flex">
+        {/* A moldura acompanha a proporção da marca. Antes era alta e estreita
+            enquanto o monograma é deitado, então sobrava espaço vazio em cima e
+            embaixo e a marca aparecia pequena no meio do quadro. */}
+        <div className="absolute top-1/2 left-1/2 hidden h-52 w-72 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-gold/60 p-4 lg:flex">
           <img
             src={detailImg}
             alt=""
