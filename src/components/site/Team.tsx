@@ -3,7 +3,6 @@ import { Reveal } from "./Reveal";
 
 const expertiseDrCarlos = [
   "Psicólogo clínico com mais de 20 anos de atuação",
-  "Especialista em Neuropsicologia e avaliação cognitiva",
   "Formação continuada em desenvolvimento humano",
   "Atendimento a crianças, adolescentes, adultos e famílias",
 ];
@@ -59,8 +58,8 @@ export function Team() {
 
             <p className="mt-10 text-lg leading-relaxed font-light text-foreground/70">
               Dedicou a carreira a compreender o funcionamento humano em profundidade. Sua prática
-              combina o rigor da avaliação neuropsicológica com uma escuta clínica sensível,
-              sustentando vínculos terapêuticos que atravessam anos.
+              combina o rigor da avaliação clínica com uma escuta sensível, sustentando vínculos
+              terapêuticos que atravessam anos.
             </p>
 
             <ul className="mt-12 space-y-5 border-t border-gold/20 pt-10">

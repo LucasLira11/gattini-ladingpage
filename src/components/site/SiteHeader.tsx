@@ -6,7 +6,10 @@ const links = [
   { href: "/#sobre", label: "Sobre" },
   { href: "/#especialidades", label: "Especialidades" },
   { href: "/#corpo-clinico", label: "Corpo Clínico" },
-  { href: "/controle-parental", label: "Controle Parental" },
+  // Controle Parental está fora do menu por ora, a pedido da clínica. A página
+  // continua inteira e funcionando em /controle-parental — só não é anunciada
+  // aqui. Para trazer de volta, basta descomentar a linha abaixo.
+  // { href: "/controle-parental", label: "Controle Parental" },
 ];
 
 export function SiteHeader() {
