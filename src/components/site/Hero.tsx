@@ -47,14 +47,18 @@ export function Hero() {
       </div>
 
       <div className="relative min-h-[60vh] w-full bg-background md:min-h-screen md:w-1/2">
+        {/* object-left: no desktop a coluna é estreita e alta e a foto é deitada,
+            então o corte central descartaria o balcão e a planta. Ancorando à
+            esquerda, a recepção fica inteira em quadro. No celular a proporção do
+            container coincide com a da foto e não há corte. */}
         <img
           src={heroImg}
-          alt="Sala de atendimento da Clínica Gattini em tons escuros, com poltrona de couro e luminária de latão"
-          width={1600}
-          height={1200}
+          alt="Recepção da Clínica Gattini, com balcão de mármore, o logotipo da clínica na parede e poltronas de espera"
+          width={1280}
+          height={960}
           fetchPriority="high"
           decoding="async"
-          className="h-full w-full object-cover opacity-95 brightness-125 transition-all duration-[1400ms] hover:brightness-150"
+          className="h-full w-full object-cover object-left opacity-95 brightness-125 transition-all duration-[1400ms] hover:brightness-150"
         />
         {/* Degradê para telas grandes (Desktop) */}
         <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background via-background/40 to-background/0 md:block" />
