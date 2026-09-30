@@ -27,15 +27,21 @@ export function About() {
         />
         <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-card via-transparent to-transparent md:block" />
 
-        <div className="absolute top-1/2 left-1/2 hidden h-64 w-48 -translate-x-1/2 -translate-y-1/2 border border-gold/30 p-2 lg:block">
+        {/* Monograma emoldurado sobre a foto: é ornamento de marca, não conteúdo.
+            O alt fica vazio de propósito, para o leitor de tela pular — a marca
+            já é anunciada no cabeçalho e no rodapé, e repeti-la aqui seria ruído.
+            object-contain, e não cover: a moldura é em pé e a marca é deitada,
+            então cover cortaria o monograma pelas laterais. O brandbook não
+            admite a marca alterada. */}
+        <div className="absolute top-1/2 left-1/2 hidden h-64 w-48 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-gold/30 p-6 lg:flex">
           <img
             src={detailImg}
-            alt="Detalhe do ambiente da clínica"
+            alt=""
             width={509}
             height={341}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover"
+            className="h-auto w-full object-contain"
           />
         </div>
       </div>
