@@ -4,7 +4,7 @@ const items = [
   {
     n: "01",
     title: "Psicologia",
-    text: "Psicoterapia individual e familiar com abordagem baseada em evidências, conduzida com escuta cuidadosa e sigilo absoluto.",
+    text: "Psicoterapia individual e familiar com abordagem baseada em evidências, conduzida com escuta cuidadosa.",
     bullets: ["Psicoterapia individual", "Orientação de pais", "Terapia familiar"],
   },
   {
@@ -48,7 +48,7 @@ export function Specialties() {
           <Reveal key={item.title} delay={i * 100}>
             <article className="group border-b border-gold/10 px-6 py-14 transition-colors duration-500 last:border-b-0 hover:bg-background/60 md:px-16 md:py-20 lg:px-20">
               <div className="flex items-baseline gap-6">
-                <span className="text-sm font-light text-gold/50">{item.n}</span>
+                <span className="text-sm font-light text-gold">{item.n}</span>
                 <h3 className="text-2xl font-light tracking-wide transition-colors duration-500 group-hover:text-gold md:text-3xl">
                   {item.title}
                 </h3>

@@ -29,7 +29,7 @@ export function Hero() {
 
             <div className="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
               <a
-                href={`https://wa.me/553199340469?text=${encodeURIComponent(msgGeral)}`}
+                href={`https://wa.me/5531999340469?text=${encodeURIComponent(msgGeral)}`}
                 className="group relative inline-flex items-center gap-4 border border-gold/40 px-8 py-4 text-xs font-bold tracking-[0.2em] text-gold uppercase transition-colors duration-500 hover:border-gold"
               >
                 <span>Agendar Consulta</span>

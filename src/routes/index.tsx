@@ -15,7 +15,10 @@ export const Route = createFileRoute("/")({
         content:
           "Há mais de 20 anos, a Clínica Gattini une ciência e acolhimento em psicologia, neuropsicologia e desenvolvimento humano para crianças, adolescentes, adultos e famílias.",
       },
-      { property: "og:title", content: "Clínica Gattini — Psicologia e Neuropsicologia" },
+      {
+        property: "og:title",
+        content: "Clínica Gattini — Psicologia . Neuropsicologia . Desenvolvimento Humano",
+      },
       {
         property: "og:description",
         content:

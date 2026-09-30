@@ -28,7 +28,7 @@ export function PorOndeComecar() {
         {porOndeComecar.map((passo, i) => (
           <Reveal key={i} delay={i * 70}>
             <article className="flex gap-6 border-b border-gold/10 px-6 py-8 last:border-b-0 md:gap-8 md:px-16 md:py-10 lg:px-20">
-              <span className="text-sm font-light text-gold/50 tabular-nums">
+              <span className="text-sm font-light text-gold tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <p className="max-w-xl text-base leading-relaxed font-light text-foreground/65">

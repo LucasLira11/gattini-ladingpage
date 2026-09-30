@@ -64,7 +64,7 @@ export function About() {
             {pillars.map(([title, text], i) => (
               <div key={title} className="group">
                 <div className="mb-3 flex items-baseline gap-3">
-                  <span className="text-xs font-light text-gold/60">0{i + 1}</span>
+                  <span className="text-xs font-light text-gold">0{i + 1}</span>
                   <h3 className="text-lg tracking-wide">{title}</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-foreground/55">{text}</p>

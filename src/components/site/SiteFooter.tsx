@@ -1,5 +1,7 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone, Smartphone } from "lucide-react";
 import logoWhite from "@/assets/G_SIMBOLO_WHITE.png";
+
+const msgGeral = "Olá! Gostaria de saber sobre a disponibilidade de horários na clínica.";
 
 export function SiteFooter() {
   return (
@@ -10,8 +12,8 @@ export function SiteFooter() {
             <img
               src={logoWhite}
               alt="Clínica Gattini"
-              width={938}
-              height={322}
+              width={509}
+              height={341}
               loading="lazy"
               decoding="async"
               className="h-24 w-auto"
@@ -30,16 +32,42 @@ export function SiteFooter() {
               <h3 className="text-[11px] tracking-[0.3em] text-foreground/50 uppercase">Contato</h3>
               <ul className="mt-6 space-y-4 text-sm font-light text-foreground/70">
                 <li className="flex items-center gap-3">
-                  <Phone className="size-4 text-gold" strokeWidth={1.5} />
-                  <a href="tel:+55 31 9934-0469" className="transition-colors hover:text-gold">
-                    +55 31 9934-0469
+                  <Phone className="size-4 shrink-0 text-gold" strokeWidth={1.5} />
+                  <a
+                    href="tel:+553132960662"
+                    className="whitespace-nowrap transition-colors hover:text-gold"
+                  >
+                    (31) 3296-0662
                   </a>
+                  <span className="text-xs text-foreground/40">fixo</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="size-4 text-gold" strokeWidth={1.5} />
+                  <Smartphone className="size-4 shrink-0 text-gold" strokeWidth={1.5} />
+                  <a
+                    href="tel:+5531997392707"
+                    className="whitespace-nowrap transition-colors hover:text-gold"
+                  >
+                    (31) 99739-2707
+                  </a>
+                  <span className="text-xs text-foreground/40">celular</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <MessageCircle className="size-4 shrink-0 text-gold" strokeWidth={1.5} />
+                  <a
+                    href={`https://wa.me/5531999340469?text=${encodeURIComponent(msgGeral)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whitespace-nowrap transition-colors hover:text-gold"
+                  >
+                    (31) 99934-0469
+                  </a>
+                  <span className="text-xs text-foreground/40">WhatsApp</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail className="size-4 shrink-0 text-gold" strokeWidth={1.5} />
                   <a
                     href="mailto:clinica@gattini.com.br"
-                    className="transition-colors hover:text-gold"
+                    className="whitespace-nowrap transition-colors hover:text-gold"
                   >
                     clinica@gattini.com.br
                   </a>
@@ -47,7 +75,7 @@ export function SiteFooter() {
                 <li className="flex items-start gap-3">
                   <MapPin className="mt-0.5 size-4 shrink-0 text-gold" strokeWidth={1.5} />
                   <span>
-                    Av. Prudente de Morais, 840 - Coracao de Jesus
+                    Av. Prudente de Morais, 840 - Coração de Jesus
                     <br />
                     7.º andar
                     <br />

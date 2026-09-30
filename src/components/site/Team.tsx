@@ -2,24 +2,13 @@ import portrait from "@/assets/dr-carlos.jpg";
 import { Reveal } from "./Reveal";
 
 const expertiseDrCarlos = [
-  "Psicólogo clínico com mais de 20 anos de atuação",
-  "Formação continuada em desenvolvimento humano",
+  "Psicólogo clínico com 37 anos de atuação",
   "Atendimento a crianças, adolescentes, adultos e famílias",
 ];
 
-// Altere com as especialidades do segundo profissional
-const expertiseProfissional2 = [
-  "Psicóloga clínica com abordagem humanizada",
-  "Especialista em Terapia Cognitivo-Comportamental",
-  "Foco no desenvolvimento infanto-juvenil",
-  "Acompanhamento e orientação familiar",
-];
-
-// Mensagens pré-formatadas (URL Encoded) para o WhatsApp
+// Mensagem pré-formatada (URL Encoded) para o WhatsApp
 const msgDrCarlos =
   "Olá! Gostaria de saber sobre a disponibilidade de horários para o Dr. Carlos Gattini.";
-const msgDra =
-  "Olá! Gostaria de saber sobre a disponibilidade de horários para a Dra. Nome Sobrenome.";
 
 export function Team() {
   return (
@@ -39,7 +28,7 @@ export function Team() {
           <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
 
           <div className="absolute right-8 bottom-12 border border-gold/20 bg-background/70 p-8 backdrop-blur-xl md:right-12">
-            <div className="mb-1 text-4xl font-extralight text-gold">20+</div>
+            <div className="mb-1 text-4xl font-extralight text-gold">37</div>
             <div className="text-[9px] tracking-[0.4em] text-foreground/50 uppercase">
               Anos de prática clínica
             </div>
@@ -77,7 +66,7 @@ export function Team() {
             {/* BOTÃO WHATSAPP - DR. CARLOS */}
             <div className="mt-10">
               <a
-                href={`https://wa.me/553199340469?text=${encodeURIComponent(msgDrCarlos)}`}
+                href={`https://wa.me/5531999340469?text=${encodeURIComponent(msgDrCarlos)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-gold/50 px-6 py-3 text-sm font-medium tracking-wide text-gold transition-all hover:bg-gold hover:text-background"

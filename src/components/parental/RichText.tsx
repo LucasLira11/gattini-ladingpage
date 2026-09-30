@@ -41,7 +41,7 @@ export function RichText({ children }: { children: string }) {
         }
         if (parte === "›") {
           return (
-            <span key={i} className="mx-0.5 text-gold/50" aria-hidden="true">
+            <span key={i} className="mx-0.5 text-gold/80" aria-hidden="true">
               ›
             </span>
           );

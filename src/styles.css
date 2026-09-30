@@ -9,8 +9,13 @@
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 6px);
-  --font-display: "Source Sans 3", "Myriad Pro", sans-serif;
-  --font-sans: "Source Sans 3", "Myriad Pro", "Inter", sans-serif;
+  /* Tipografia institucional: Myriad Pro. Ela não é fonte web, então vem
+     primeiro para ser usada por quem a tem instalada — as máquinas da
+     clínica e do estúdio — e o restante cai na Source Sans 3, a
+     alternativa gratuita mais próxima indicada pelo brandbook, seguida da
+     Open Sans. A Inter saiu: não consta do brandbook. */
+  --font-display: "Myriad Pro", "Source Sans 3", "Open Sans", sans-serif;
+  --font-sans: "Myriad Pro", "Source Sans 3", "Open Sans", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -55,13 +60,31 @@
 :root {
   --radius: 0.25rem;
 
-  /* Institutional palette */
-  --navy: oklch(0.1284 0.0288 264.5); /* #010A18 */
-  --navy-soft: oklch(0.2255 0.0403 263.2); /* #0A1B33 */
-  --gold: oklch(0.7031 0.1136 76.5); /* #C79433 */
-  --gold-soft: oklch(0.7889 0.0899 78);
-  --ink: oklch(0.6 0.012 265);
-  --offwhite: oklch(0.9273 0.0142 84.5); /* #EDE7DB */
+  /* ------------------------------------------------------------------
+     Paleta institucional — Brandbook Clínica Gattini 2026.
+
+     São três cores de marca, e só três. O azul profundo responde por
+     logotipo, textos e fundos institucionais; o dourado é acento, nunca
+     cor dominante; o branco é o fundo preferencial e a versão negativa
+     da marca. Para neutros, cinzas suaves — nenhuma cor nova.
+     ------------------------------------------------------------------ */
+  --navy: #021128; /* Azul Profundo — cor principal */
+  --gold: #a67c2e; /* Dourado — acento */
+  --offwhite: #ffffff; /* Branco institucional (nome mantido por compatibilidade) */
+
+  /* Superfície de cartão. Não é cor de marca: é o azul institucional
+     levemente elevado, para separar blocos. O valor foi escolhido de modo
+     que o dourado institucional escrito sobre ele permaneça em 4,55:1 —
+     acima do mínimo de 4,5:1 exigido para texto. Clarear mais derruba a
+     legibilidade dos rótulos em dourado. */
+  --navy-soft: #071b36;
+
+  /* Tinta clara do dourado, para uso gráfico (fios, molduras). Não é cor
+     de marca nova: é o mesmo dourado em valor mais alto. */
+  --gold-soft: #c19a56;
+
+  /* Cinza suave, o neutro previsto pelo brandbook. */
+  --ink: #8c93a1;
 
   --background: var(--navy);
   --foreground: var(--offwhite);

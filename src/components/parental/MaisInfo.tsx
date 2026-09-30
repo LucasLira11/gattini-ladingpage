@@ -17,7 +17,7 @@ export function MaisInfo({
 }) {
   return (
     <details className={`group ${className}`}>
-      <summary className="inline-flex cursor-pointer list-none items-center gap-2.5 text-[10px] font-bold tracking-[0.2em] text-gold/70 uppercase transition-colors duration-500 outline-none hover:text-gold focus-visible:text-gold [&::-webkit-details-marker]:hidden">
+      <summary className="inline-flex cursor-pointer list-none items-center gap-2.5 text-[10px] font-bold tracking-[0.2em] text-gold uppercase transition-colors duration-500 outline-none hover:text-gold-soft focus-visible:text-gold-soft [&::-webkit-details-marker]:hidden">
         <Plus
           className="size-3 shrink-0 transition-transform duration-500 group-open:rotate-45"
           strokeWidth={2.5}

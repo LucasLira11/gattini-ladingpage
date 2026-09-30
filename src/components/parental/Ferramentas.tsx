@@ -119,7 +119,7 @@ export function Ferramentas() {
               <Reveal key={c.n} delay={i * 100} className="h-full">
                 <article className="h-full bg-card px-7 py-10 md:px-9">
                   <div className="flex items-baseline gap-5">
-                    <span className="text-sm font-light text-gold/50">{c.n}</span>
+                    <span className="text-sm font-light text-gold">{c.n}</span>
                     <span className="text-[10px] font-bold tracking-[0.25em] text-foreground/40 uppercase">
                       {c.onde}
                     </span>
