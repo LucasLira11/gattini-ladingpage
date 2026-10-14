@@ -1,12 +1,36 @@
+import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import portrait from "@/assets/dr-carlos.jpg";
 import { Reveal } from "./Reveal";
 
 const WHATSAPP = "5531999340469";
 
-const expertiseDrCarlos = [
-  "Psicólogo clínico com 37 anos de atuação",
-  "Atendimento a crianças, adolescentes, adultos e famílias",
+const formacaoDrCarlos = [
+  "Psicólogo pela UFMG (1989)",
+  "Especialista em Psicologia Clínica pelo CRP-MG (2001)",
+  "Especialista em Psicologia Escolar pelo CRP-MG (2001)",
+  "24 anos de atuação no Grupo Vida",
+  "Centro de Tratamento Preventivo (1991–1998) e CASSI (1994–2000)",
+];
+
+// As áreas são as abordagens e frentes de formação do próprio currículo dele;
+// cada texto se limita ao que o currículo registra, sem descrever técnica.
+const areasDrCarlos = [
+  {
+    titulo: "Terapia Cognitiva e Terapia do Esquema",
+    texto:
+      "Formação em Terapia Cognitiva e em Terapia do Esquema pela Wainer Psicologia Cognitiva, de Porto Alegre, credenciada pela International Society of Schema Therapy (2014). Associado à Federação Brasileira de Terapia Cognitiva (FBTC).",
+  },
+  {
+    titulo: "Psicoterapia infantil e da adolescência",
+    texto:
+      "Especialização em Psicologia Clínica, Psicopatologia e Psicoterapia Infantil pela Faculdade de Medicina da UFMG (1996–1997) e em Adolescência pela Faculdade de Ciências Médicas – Fundação Lucas Machado (2000). Atuou no CREIA – Centro de Reeducação Infanto Juvenil (1998).",
+  },
+  {
+    titulo: "Psicologia escolar",
+    texto:
+      "Especialista em Psicologia Escolar pelo Conselho Regional de Psicologia de Minas Gerais (2001). Atuou no Colégio Horizontes e conduziu em escolas o projeto “Sexualidade e anticoncepção” (1999).",
+  },
 ];
 
 const msgDrCarlos =
@@ -70,16 +94,17 @@ export function Team() {
               Dr. Carlos Gattini
             </h2>
             <p className="mt-3 text-[11px] tracking-[0.3em] text-gold uppercase">
-              Fundador e Diretor Clínico
+              Psicólogo · CRP 04/8576
             </p>
 
             <p className="mt-10 text-lg leading-relaxed font-light text-foreground/70">
-              Dedicou a carreira a compreender o funcionamento humano em profundidade. Sua prática
-              combina o rigor da avaliação clínica com uma escuta sensível, sustentando vínculos
-              terapêuticos que atravessam anos.
+              Fundador e responsável técnico da Clínica Gattini. Formado em Psicologia pela UFMG e
+              especialista em Psicologia Clínica, atende crianças, adolescentes, adultos e famílias.
             </p>
 
-            <Lista itens={expertiseDrCarlos} />
+            <Lista itens={formacaoDrCarlos} />
+
+            <Areas itens={areasDrCarlos} />
 
             <BotaoWhatsApp mensagem={msgDrCarlos} rotulo="Agendar com o Dr. Carlos" />
           </Reveal>
@@ -135,16 +160,7 @@ export function Team() {
 
             <Lista itens={formacaoHeloisa} />
 
-            <div className="mt-12">
-              <p className="text-[10px] font-bold tracking-[0.25em] text-gold uppercase">
-                Áreas de atuação
-              </p>
-              <div className="mt-4 border-t border-gold/20">
-                {servicosHeloisa.map((s) => (
-                  <Servico key={s.titulo} titulo={s.titulo} texto={s.texto} />
-                ))}
-              </div>
-            </div>
+            <Areas itens={servicosHeloisa} />
 
             <BotaoWhatsApp mensagem={msgHeloisa} rotulo="Agendar com a Heloísa" />
           </Reveal>
@@ -190,19 +206,71 @@ function Lista({ itens }: { itens: string[] }) {
   );
 }
 
-/** Serviço com o nome sempre visível e a descrição completa sob demanda. */
-function Servico({ titulo, texto }: { titulo: string; texto: string }) {
+function Areas({ itens }: { itens: { titulo: string; texto: string }[] }) {
   return (
-    <details className="group border-b border-gold/20">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-base font-light text-offwhite transition-colors duration-500 outline-none hover:text-gold focus-visible:text-gold [&::-webkit-details-marker]:hidden">
+    <div className="mt-12">
+      <p className="text-[10px] font-bold tracking-[0.25em] text-gold uppercase">
+        Áreas de atuação
+      </p>
+      <div className="mt-4 border-t border-gold/20">
+        {itens.map((a) => (
+          <Area key={a.titulo} titulo={a.titulo} texto={a.texto} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Área com o nome sempre visível e a descrição sob demanda, abrindo e fechando
+ * em deslize.
+ *
+ * O <details> nativo não anima: o conteúdo aparece e some de uma vez, que era o
+ * "duro" da versão anterior. Aqui a altura transita de 0fr para 1fr numa linha
+ * de grid — o único jeito de animar até a altura real do conteúdo sem medi-la
+ * em JavaScript, e que funciona em todos os navegadores atuais. O texto entra
+ * com um leve atraso e esmaecimento, para não surgir antes do espaço se abrir.
+ * Quem pede menos movimento no sistema recebe a troca sem animação.
+ */
+function Area({ titulo, texto }: { titulo: string; texto: string }) {
+  const [aberta, setAberta] = useState(false);
+  const id = useId();
+
+  return (
+    <div className="border-b border-gold/20">
+      <button
+        type="button"
+        aria-expanded={aberta}
+        aria-controls={id}
+        onClick={() => setAberta((v) => !v)}
+        className="flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left text-base font-light text-offwhite transition-colors duration-500 outline-none hover:text-gold focus-visible:text-gold"
+      >
         {titulo}
         <ChevronDown
-          className="size-4 shrink-0 text-gold transition-transform duration-500 group-open:rotate-180"
+          className={`size-4 shrink-0 text-gold transition-transform duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none ${
+            aberta ? "rotate-180" : ""
+          }`}
           strokeWidth={1.5}
         />
-      </summary>
-      <p className="pb-6 text-sm leading-relaxed font-light text-foreground/65">{texto}</p>
-    </details>
+      </button>
+      <div
+        id={id}
+        inert={!aberta}
+        className={`grid transition-[grid-template-rows] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none ${
+          aberta ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p
+            className={`pb-6 text-sm leading-relaxed font-light text-foreground/65 transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none ${
+              aberta ? "translate-y-0 opacity-100 delay-100" : "-translate-y-1 opacity-0"
+            }`}
+          >
+            {texto}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 

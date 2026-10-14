@@ -104,9 +104,14 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-20 border-t border-gold/10 pt-8">
+        <div className="mt-20 flex flex-col gap-3 border-t border-gold/10 pt-8 md:flex-row md:items-baseline md:justify-between">
           <p className="text-[10px] tracking-[0.2em] text-foreground/40 uppercase">
             © {new Date().getFullYear()} Clínica Gattini. Todos os direitos reservados.
+          </p>
+          {/* Registro da pessoa jurídica e do responsável técnico, que o Código
+              de Ética do psicólogo pede em toda divulgação de serviços. */}
+          <p className="text-[10px] tracking-[0.2em] text-foreground/40 uppercase">
+            CRP-04/PJ605 · Responsável técnico: Carlos Alberto Gattini, CRP 04/8576
           </p>
         </div>
       </div>
