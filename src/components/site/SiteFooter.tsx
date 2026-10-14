@@ -114,6 +114,23 @@ export function SiteFooter() {
             CRP-04/PJ605 · Responsável técnico: Carlos Alberto Gattini, CRP 04/8576
           </p>
         </div>
+
+        {/* Assinatura de quem desenvolveu o site. Fica numa linha própria, abaixo
+            das informações legais, para não competir com elas. O rel é só
+            "noopener", sem "noreferrer", de propósito: assim as visitas que
+            chegam ao portfólio por aqui continuam aparecendo como vindas do
+            site da clínica. */}
+        <p className="mt-6 text-[10px] tracking-[0.2em] text-foreground/40 uppercase">
+          Desenvolvido por{" "}
+          <a
+            href="https://lucaslira11.github.io/"
+            target="_blank"
+            rel="noopener"
+            className="underline decoration-foreground/20 underline-offset-4 transition-colors duration-500 hover:text-gold hover:decoration-gold/60"
+          >
+            Lucas Lira
+          </a>
+        </p>
       </div>
     </footer>
   );
