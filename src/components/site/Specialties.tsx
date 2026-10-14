@@ -17,7 +17,12 @@ const items = [
     n: "03",
     title: "Desenvolvimento Humano",
     text: "Acompanhamento de trajetórias de desenvolvimento, transições de vida e potencialização de habilidades.",
-    bullets: ["Desenvolvimento infantil", "Transições de vida", "Habilidades socioemocionais"],
+    bullets: [
+      "Desenvolvimento infantil",
+      "Transições de vida",
+      "Habilidades socioemocionais",
+      "Orientação profissional e de carreira",
+    ],
   },
 ];
 

@@ -107,6 +107,7 @@ const clinica = {
     "Avaliação neuropsicológica",
     "Reabilitação cognitiva",
     "Desenvolvimento infantil",
+    "Orientação profissional e de carreira",
   ],
 };
 
