@@ -13,7 +13,7 @@ export function Hero() {
         <div className="max-w-xl">
           <Reveal>
             <div className="mb-10 h-0.5 w-12 bg-gold" />
-            <p className="eyebrow mb-8">Clínica Gattini — desde 2004</p>
+            <p className="eyebrow mb-8">Clínica Gattini — desde 2000</p>
             <h1 className="text-4xl leading-[1.08] font-light tracking-tight md:text-5xl lg:text-[3.9rem]">
               Ciência para compreender.
               <span className="block">Humanidade para acolher.</span>

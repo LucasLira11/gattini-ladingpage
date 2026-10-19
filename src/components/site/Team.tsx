@@ -1,36 +1,63 @@
-import { useId, useState } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import portrait from "@/assets/dr-carlos.jpg";
 import { Reveal } from "./Reveal";
 
 const WHATSAPP = "5531999340469";
 
-const formacaoDrCarlos = [
-  "Psicólogo pela UFMG (1989)",
-  "Especialista em Psicologia Clínica pelo CRP-MG (2001)",
-  "Especialista em Psicologia Escolar pelo CRP-MG (2001)",
-  "24 anos de atuação no Grupo Vida",
-  "Centro de Tratamento Preventivo (1991–1998) e CASSI (1994–2000)",
+// As áreas são as abordagens e frentes do próprio currículo dele. Ficam só com
+// o nome: o que sustenta cada uma está no currículo logo abaixo, e repetir aqui
+// seria dizer a mesma coisa duas vezes.
+const areasDrCarlos = [
+  "Terapia Cognitiva e Terapia do Esquema",
+  "Psicoterapia infantil e da adolescência",
+  "Psicologia escolar",
 ];
 
-// As áreas são as abordagens e frentes de formação do próprio currículo dele;
-// cada texto se limita ao que o currículo registra, sem descrever técnica.
-const areasDrCarlos = [
+// Currículo do Dr. Carlos. Cada item se limita ao que ele informou, sem
+// descrever técnica: onde o cargo ou o período não foi informado, o item sai
+// sem ele, em vez de ganhar um valor suposto. As datas da trajetória ficam
+// exatamente como vieram.
+const formacaoDrCarlos = [
+  "Psicólogo pela UFMG (1989)",
+  "Especialização em Psicologia Clínica, Psicopatologia e Psicoterapia Infantil pela Faculdade de Medicina da Universidade Federal de Minas Gerais – UFMG (1996–1997)",
+  "Especialização em Adolescência pela Faculdade de Ciências Médicas de Minas Gerais (2000)",
+  "Especialista em Psicologia Clínica e em Psicologia Escolar pelo Conselho Regional de Psicologia de Minas Gerais (2001)",
+  "Formação em Terapia Cognitiva e em Terapia do Esquema pela Wainer Psicologia Cognitiva, de Porto Alegre, credenciada pela International Society of Schema Therapy (2014)",
+];
+
+const trajetoriaDrCarlos: Etapa[] = [
+  { periodo: "Desde 1990", local: "Atuação em Psicologia Clínica" },
   {
-    titulo: "Terapia Cognitiva e Terapia do Esquema",
-    texto:
-      "Formação em Terapia Cognitiva e em Terapia do Esquema pela Wainer Psicologia Cognitiva, de Porto Alegre, credenciada pela International Society of Schema Therapy (2014). Associado à Federação Brasileira de Terapia Cognitiva (FBTC).",
+    periodo: "01/02/1990 a 28/03/1993",
+    local: "Psiquê Psicologia Clínica e Aplicada",
+    cargo: "Psicólogo Clínico",
   },
   {
-    titulo: "Psicoterapia infantil e da adolescência",
-    texto:
-      "Especialização em Psicologia Clínica, Psicopatologia e Psicoterapia Infantil pela Faculdade de Medicina da UFMG (1996–1997) e em Adolescência pela Faculdade de Ciências Médicas – Fundação Lucas Machado (2000). Atuou no CREIA – Centro de Reeducação Infanto Juvenil (1998).",
+    periodo: "03/02/1991 a 07/07/1996",
+    local: "IMEPE – Sistema de Educação Especial",
+    cargo: "Psicólogo Escolar",
   },
+  { periodo: "1991 a 1998", local: "Centro de Tratamento Preventivo" },
   {
-    titulo: "Psicologia escolar",
-    texto:
-      "Especialista em Psicologia Escolar pelo Conselho Regional de Psicologia de Minas Gerais (2001). Atuou no Colégio Horizontes e conduziu em escolas o projeto “Sexualidade e anticoncepção” (1999).",
+    periodo: "13/04/1994 a 07/06/2000",
+    local: "Caixa de Assistência dos Funcionários do Banco do Brasil (CASSI)",
   },
+  { periodo: "1998", local: "CREIA – Centro de Reeducação Infanto Juvenil" },
+  { local: "Colégio Horizontes" },
+  { periodo: "24 anos de atuação", local: "Grupo Vida" },
+];
+
+const associacoesDrCarlos = [
+  "Associado à Federação Brasileira de Terapias Cognitivas (FBTC)",
+  "Membro da Associação de Terapias Cognitivas",
+  "Membro da ABNEPI-MG – Associação Brasileira de Neuropsiquiatria Infantil",
+];
+
+const curriculoDrCarlos = [
+  { titulo: "Formação e especializações", texto: <Marcadores itens={formacaoDrCarlos} /> },
+  { titulo: "Trajetória profissional", texto: <Trajetoria etapas={trajetoriaDrCarlos} /> },
+  { titulo: "Associações profissionais", texto: <Marcadores itens={associacoesDrCarlos} /> },
 ];
 
 const msgDrCarlos =
@@ -102,9 +129,9 @@ export function Team() {
               especialista em Psicologia Clínica, atende crianças, adolescentes, adultos e famílias.
             </p>
 
-            <Lista itens={formacaoDrCarlos} />
+            <Lista itens={areasDrCarlos} rotulo="Áreas de atuação" />
 
-            <Areas itens={areasDrCarlos} />
+            <Areas itens={curriculoDrCarlos} rotulo="Formação e trajetória" />
 
             <BotaoWhatsApp mensagem={msgDrCarlos} rotulo="Agendar com o Dr. Carlos" />
           </Reveal>
@@ -193,12 +220,33 @@ function Selo({
   );
 }
 
-function Lista({ itens }: { itens: string[] }) {
+function Rotulo({ children }: { children: ReactNode }) {
+  return <p className="text-[10px] font-bold tracking-[0.25em] text-gold uppercase">{children}</p>;
+}
+
+function Lista({ itens, rotulo }: { itens: string[]; rotulo?: string }) {
   return (
-    <ul className="mt-12 space-y-5 border-t border-gold/20 pt-10">
+    <div className="mt-12">
+      {rotulo && <Rotulo>{rotulo}</Rotulo>}
+      <ul className={`space-y-5 border-t border-gold/20 ${rotulo ? "mt-4 pt-6" : "pt-10"}`}>
+        {itens.map((e) => (
+          <li key={e} className="flex items-start gap-4 text-sm font-light text-foreground/70">
+            <span className="mt-2.5 h-px w-5 shrink-0 bg-gold" />
+            {e}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Lista curta dentro de um item expansível, no mesmo traço dourado da Lista. */
+function Marcadores({ itens }: { itens: string[] }) {
+  return (
+    <ul className="space-y-3">
       {itens.map((e) => (
-        <li key={e} className="flex items-start gap-4 text-sm font-light text-foreground/70">
-          <span className="mt-2.5 h-px w-5 shrink-0 bg-gold" />
+        <li key={e} className="flex items-start gap-3">
+          <span className="mt-2.5 h-px w-3 shrink-0 bg-gold" />
           {e}
         </li>
       ))}
@@ -206,12 +254,35 @@ function Lista({ itens }: { itens: string[] }) {
   );
 }
 
-function Areas({ itens }: { itens: { titulo: string; texto: string }[] }) {
+type Etapa = { periodo?: string; local: string; cargo?: string };
+
+/** Experiências em ordem cronológica, com o período acima de cada uma. */
+function Trajetoria({ etapas }: { etapas: Etapa[] }) {
+  return (
+    <ol className="space-y-4">
+      {etapas.map((e) => (
+        <li key={e.local}>
+          {e.periodo && (
+            <span className="block text-xs tracking-[0.15em] text-gold">{e.periodo}</span>
+          )}
+          <span className="text-foreground/80">{e.local}</span>
+          {e.cargo && <> · {e.cargo}</>}
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function Areas({
+  itens,
+  rotulo = "Áreas de atuação",
+}: {
+  itens: { titulo: string; texto: ReactNode }[];
+  rotulo?: string;
+}) {
   return (
     <div className="mt-12">
-      <p className="text-[10px] font-bold tracking-[0.25em] text-gold uppercase">
-        Áreas de atuação
-      </p>
+      <Rotulo>{rotulo}</Rotulo>
       <div className="mt-4 border-t border-gold/20">
         {itens.map((a) => (
           <Area key={a.titulo} titulo={a.titulo} texto={a.texto} />
@@ -232,7 +303,7 @@ function Areas({ itens }: { itens: { titulo: string; texto: string }[] }) {
  * com um leve atraso e esmaecimento, para não surgir antes do espaço se abrir.
  * Quem pede menos movimento no sistema recebe a troca sem animação.
  */
-function Area({ titulo, texto }: { titulo: string; texto: string }) {
+function Area({ titulo, texto }: { titulo: string; texto: ReactNode }) {
   const [aberta, setAberta] = useState(false);
   const id = useId();
 
@@ -261,13 +332,13 @@ function Area({ titulo, texto }: { titulo: string; texto: string }) {
         }`}
       >
         <div className="overflow-hidden">
-          <p
+          <div
             className={`pb-6 text-sm leading-relaxed font-light text-foreground/65 transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none ${
               aberta ? "translate-y-0 opacity-100 delay-100" : "-translate-y-1 opacity-0"
             }`}
           >
-            {texto}
-          </p>
+            {typeof texto === "string" ? <p>{texto}</p> : texto}
+          </div>
         </div>
       </div>
     </div>
