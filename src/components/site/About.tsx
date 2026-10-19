@@ -15,7 +15,8 @@ const msgGeral = "Olá! Gostaria de saber sobre a disponibilidade de horários n
 export function About() {
   return (
     <section id="sobre" className="relative flex flex-col-reverse md:flex-row">
-      <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
+      {/* Altura fixa no celular para a foto cobrir o bloco inteiro; ver Hero. */}
+      <div className="relative h-[60vh] w-full bg-card md:h-auto md:min-h-screen md:w-1/2">
         <img
           src={roomImg}
           alt="Consultório da Clínica Gattini com duas poltronas voltadas uma para a outra"

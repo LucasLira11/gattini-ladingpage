@@ -99,19 +99,21 @@ export function Team() {
     <section id="corpo-clinico" className="flex flex-col">
       {/* 1º PROFISSIONAL: IMAGEM NA ESQUERDA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row">
-        <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
-          <img
-            src={portrait}
-            alt="Retrato em preto e branco do Dr. Carlos Gattini"
-            width={1600}
-            height={1195}
-            loading="lazy"
-            decoding="async"
-            className="h-full w-full object-cover opacity-95 grayscale"
-          />
-          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
+        <div className="relative h-[60vh] w-full bg-card md:h-auto md:min-h-screen md:w-1/2">
+          <Quadro>
+            <img
+              src={portrait}
+              alt="Retrato em preto e branco do Dr. Carlos Gattini"
+              width={1600}
+              height={1195}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover opacity-95 grayscale"
+            />
+            <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
 
-          <Selo numero="36" legenda="Anos de prática clínica" lado="direita" />
+            <Selo numero="36" legenda="Anos de prática clínica" lado="direita" />
+          </Quadro>
         </div>
 
         <div className="flex w-full items-center justify-center bg-background px-6 py-24 md:w-1/2 md:px-16 md:py-28 lg:px-24">
@@ -141,33 +143,40 @@ export function Team() {
       {/* 2º PROFISSIONAL: IMAGEM NA DIREITA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row-reverse">
         <div
-          className={`relative w-full bg-card md:min-h-screen md:w-1/2 ${
-            retratoHeloisa ? "min-h-[60vh]" : "min-h-[45vh]"
+          className={`relative w-full bg-card md:h-auto md:min-h-screen md:w-1/2 ${
+            retratoHeloisa ? "h-[60vh]" : "h-[max(45vh,26rem)]"
           }`}
         >
-          {retratoHeloisa ? (
-            <img
-              src={retratoHeloisa}
-              alt="Retrato de Heloísa Kohatsu-Muniz"
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover opacity-95 grayscale"
-            />
-          ) : (
-            // Sem foto ainda: as iniciais num quadro de fio dourado, no mesmo
-            // vocabulário do monograma da clínica. É provisório, mas não pode
-            // parecer quebrado.
-            <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-              <div className="flex size-40 items-center justify-center border border-gold/50 md:size-52">
-                <span className="text-5xl font-extralight tracking-[0.12em] text-offwhite/85 md:text-6xl">
-                  HK
-                </span>
+          <Quadro>
+            {retratoHeloisa ? (
+              <img
+                src={retratoHeloisa}
+                alt="Retrato de Heloísa Kohatsu-Muniz"
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover opacity-95 grayscale"
+              />
+            ) : (
+              // Sem foto ainda: as iniciais num quadro de fio dourado, no mesmo
+              // vocabulário do monograma da clínica. É provisório, mas não pode
+              // parecer quebrado. No celular o quadro centraliza só na parte de
+              // cima, acima do selo: centralizado no bloco inteiro, o selo o
+              // cobria pela metade.
+              <div
+                className="absolute inset-x-0 top-0 bottom-32 flex items-center justify-center md:bottom-0"
+                aria-hidden="true"
+              >
+                <div className="flex size-40 items-center justify-center border border-gold/50 md:size-52">
+                  <span className="text-5xl font-extralight tracking-[0.12em] text-offwhite/85 md:text-6xl">
+                    HK
+                  </span>
+                </div>
               </div>
-            </div>
-          )}
-          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-background/70 via-transparent to-transparent md:block" />
+            )}
+            <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-background/70 via-transparent to-transparent md:block" />
 
-          <Selo numero="3+" legenda="Anos em avaliação neuropsicológica" lado="esquerda" />
+            <Selo numero="3+" legenda="Anos em avaliação neuropsicológica" lado="esquerda" />
+          </Quadro>
         </div>
 
         <div className="flex w-full items-center justify-center bg-background px-6 py-24 md:w-1/2 md:px-16 md:py-28 lg:px-24">
@@ -197,6 +206,23 @@ export function Team() {
   );
 }
 
+/**
+ * Moldura da foto no desktop: tem a altura da tela e fica presa enquanto o
+ * texto ao lado rola.
+ *
+ * Antes a foto tinha a altura da coluna de texto inteira. Como ela é recortada
+ * para cobrir o espaço, cada item de formação ou trajetória aberto deixava a
+ * coluna mais alta e a foto mais ampliada — chegava quase ao dobro com tudo
+ * aberto. Presa à altura da tela, ela não muda de tamanho, abra o que abrir.
+ *
+ * No celular a foto fica acima do texto, num bloco de altura fixa, e não muda
+ * com o texto; ali a moldura só repassa essa altura, e o selo continua
+ * posicionado pelo bloco de fora.
+ */
+function Quadro({ children }: { children: ReactNode }) {
+  return <div className="h-full md:sticky md:top-0 md:h-screen">{children}</div>;
+}
+
 function Selo({
   numero,
   legenda,
@@ -208,11 +234,11 @@ function Selo({
 }) {
   return (
     <div
-      className={`absolute bottom-12 border border-gold/20 bg-background/70 p-8 backdrop-blur-xl ${
-        lado === "direita" ? "right-8 md:right-12" : "left-8 md:left-12"
+      className={`absolute bottom-6 border border-gold/20 bg-background/70 p-5 backdrop-blur-xl md:bottom-12 md:p-8 ${
+        lado === "direita" ? "right-6 md:right-12" : "left-6 md:left-12"
       }`}
     >
-      <div className="mb-1 text-4xl font-extralight text-gold">{numero}</div>
+      <div className="mb-1 text-3xl font-extralight md:text-4xl text-gold">{numero}</div>
       <div className="max-w-[14rem] text-[9px] tracking-[0.4em] text-foreground/50 uppercase">
         {legenda}
       </div>
