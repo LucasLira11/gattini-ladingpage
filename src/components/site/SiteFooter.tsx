@@ -111,7 +111,8 @@ export function SiteFooter() {
           {/* Registro da pessoa jurídica e do responsável técnico, que o Código
               de Ética do psicólogo pede em toda divulgação de serviços. */}
           <p className="text-[10px] tracking-[0.2em] text-foreground/40 uppercase">
-            CRP-04/PJ605 · Responsável técnico: Carlos Alberto Gattini, CRP 04/8576
+            Registro da clínica (pessoa jurídica): CRP-04/PJ605 · Responsável técnico: Carlos
+            Alberto Gattini, CRP 04/8576
           </p>
         </div>
 
