@@ -30,6 +30,8 @@ export function Hero() {
             <div className="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
               <a
                 href={`https://wa.me/5531999340469?text=${encodeURIComponent(msgGeral)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-4 border border-gold/40 px-8 py-4 text-xs font-bold tracking-[0.2em] text-gold uppercase transition-colors duration-500 hover:border-gold"
               >
                 <span>Agendar Consulta</span>
@@ -46,11 +48,14 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative min-h-[60vh] w-full bg-background md:min-h-screen md:w-1/2">
-        {/* object-left: no desktop a coluna é estreita e alta e a foto é deitada,
-            então o corte central descartaria o balcão e a planta. Ancorando à
-            esquerda, a recepção fica inteira em quadro. No celular a proporção do
-            container coincide com a da foto e não há corte. */}
+      {/* No celular a altura é fixa, e não mínima: com altura só mínima o h-full
+          da foto não tem a que se referir, a foto ficava no tamanho natural e
+          sobrava uma faixa vazia embaixo, com o selo solto nela. */}
+      <div className="relative h-[60vh] w-full bg-background md:h-auto md:min-h-screen md:w-1/2">
+        {/* object-left: a coluna é mais alta que a foto deitada, então o corte
+            central descartaria o balcão e a planta. Ancorando à esquerda, a
+            recepção e o logotipo da parede ficam em quadro, no desktop e no
+            celular. */}
         <img
           src={heroImg}
           alt="Recepção da Clínica Gattini, com balcão de mármore, o logotipo da clínica na parede e poltronas de espera"
