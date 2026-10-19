@@ -40,7 +40,7 @@ const trajetoriaDrCarlos: Etapa[] = [
   },
   { periodo: "1991 a 1998", local: "Centro de Tratamento Preventivo" },
   {
-    periodo: "13/04/1994 a 07/06/2000",
+    periodo: "13/04/1994 a 07/06/2000 · 6 anos",
     local: "Caixa de Assistência dos Funcionários do Banco do Brasil (CASSI)",
   },
   { periodo: "1998", local: "CREIA – Centro de Reeducação Infanto Juvenil" },
