@@ -50,8 +50,8 @@ const trajetoriaDrCarlos: Etapa[] = [
 
 const associacoesDrCarlos = [
   "Associado à Federação Brasileira de Terapias Cognitivas (FBTC)",
-  "Membro da Associação de Terapias Cognitivas",
-  "Membro da ABNEPI-MG – Associação Brasileira de Neuropsiquiatria Infantil",
+  "Membro da Associação de Terapias Cognitivas de Minas Gerais (ATC-Minas)",
+  "Membro da ABENEPI-MG – Associação Brasileira de Neurologia, Psiquiatria Infantil e Profissões Afins",
 ];
 
 const curriculoDrCarlos = [
@@ -111,7 +111,7 @@ export function Team() {
           />
           <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
 
-          <Selo numero="37" legenda="Anos de prática clínica" lado="direita" />
+          <Selo numero="36" legenda="Anos de prática clínica" lado="direita" />
         </div>
 
         <div className="flex w-full items-center justify-center bg-background px-6 py-24 md:w-1/2 md:px-16 md:py-28 lg:px-24">
