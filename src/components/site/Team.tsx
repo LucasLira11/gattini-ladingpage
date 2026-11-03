@@ -1,6 +1,7 @@
 import { useId, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import portrait from "@/assets/dr-carlos.jpg";
+import retratoHeloisa from "@/assets/heloisa.jpg";
 import { Reveal } from "./Reveal";
 
 const WHATSAPP = "5531999340469";
@@ -63,13 +64,6 @@ const curriculoDrCarlos = [
 const msgDrCarlos =
   "Olá! Gostaria de saber sobre a disponibilidade de horários para o Dr. Carlos Gattini.";
 
-/**
- * Retrato da Heloísa. Enquanto a foto não chega, o painel mostra as iniciais
- * no lugar. Quando chegar: coloque o arquivo em src/assets, importe-o no topo
- * deste arquivo e atribua aqui — o resto do layout já está pronto.
- */
-const retratoHeloisa: string | undefined = undefined;
-
 const formacaoHeloisa = [
   "Psicóloga pela UFMG (2023)",
   "Especialista em Avaliação Psicológica e Diagnóstico pela PUC Minas (2024)",
@@ -107,7 +101,7 @@ export function Team() {
             height={1195}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover opacity-95 grayscale"
+            className="absolute inset-0 h-full w-full object-cover opacity-95 grayscale"
           />
           <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
 
@@ -140,31 +134,21 @@ export function Team() {
 
       {/* 2º PROFISSIONAL: IMAGEM NA DIREITA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row-reverse">
-        <div
-          className={`relative w-full bg-card md:min-h-screen md:w-1/2 ${
-            retratoHeloisa ? "min-h-[60vh]" : "min-h-[45vh]"
-          }`}
-        >
-          {retratoHeloisa ? (
-            <img
-              src={retratoHeloisa}
-              alt="Retrato de Heloísa Kohatsu-Muniz"
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover opacity-95 grayscale"
-            />
-          ) : (
-            // Sem foto ainda: as iniciais num quadro de fio dourado, no mesmo
-            // vocabulário do monograma da clínica. É provisório, mas não pode
-            // parecer quebrado.
-            <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-              <div className="flex size-40 items-center justify-center border border-gold/50 md:size-52">
-                <span className="text-5xl font-extralight tracking-[0.12em] text-offwhite/85 md:text-6xl">
-                  HK
-                </span>
-              </div>
-            </div>
-          )}
+        <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
+          <img
+            src={retratoHeloisa}
+            alt="Retrato de Heloísa Kohatsu-Muniz"
+            width={1493}
+            height={2000}
+            loading="lazy"
+            decoding="async"
+            // Presa às bordas do quadro (absolute inset-0), a foto o preenche em
+            // qualquer tela: no celular o quadro tem altura mínima mas não fixa,
+            // e h-full sozinho deixava a foto na altura natural, com uma faixa
+            // vazia embaixo. O rosto fica no terço superior do retrato, por isso
+            // o corte é ancorado ali, e não no centro.
+            className="absolute inset-0 h-full w-full object-cover object-[center_22%] opacity-95 grayscale"
+          />
           <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-background/70 via-transparent to-transparent md:block" />
 
           <Selo numero="3+" legenda="Anos em avaliação neuropsicológica" lado="esquerda" />
