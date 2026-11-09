@@ -16,37 +16,13 @@ const areasDrCarlos = [
 ];
 
 // Currículo do Dr. Carlos. Cada item se limita ao que ele informou, sem
-// descrever técnica: onde o cargo ou o período não foi informado, o item sai
-// sem ele, em vez de ganhar um valor suposto. As datas da trajetória ficam
-// exatamente como vieram.
+// descrever técnica nem acrescentar dado suposto.
 const formacaoDrCarlos = [
   "Psicólogo pela UFMG (1989)",
   "Especialização em Psicologia Clínica, Psicopatologia e Psicoterapia Infantil pela Faculdade de Medicina da Universidade Federal de Minas Gerais – UFMG (1996–1997)",
   "Especialização em Adolescência pela Faculdade de Ciências Médicas de Minas Gerais (2000)",
   "Especialista em Psicologia Clínica e em Psicologia Escolar pelo Conselho Regional de Psicologia de Minas Gerais (2001)",
   "Formação em Terapia Cognitiva e em Terapia do Esquema pela Wainer Psicologia Cognitiva, de Porto Alegre, credenciada pela International Society of Schema Therapy (2014)",
-];
-
-const trajetoriaDrCarlos: Etapa[] = [
-  { periodo: "Desde 1990", local: "Atuação em Psicologia Clínica" },
-  {
-    periodo: "01/02/1990 a 28/03/1993",
-    local: "Psiquê Psicologia Clínica e Aplicada",
-    cargo: "Psicólogo Clínico",
-  },
-  {
-    periodo: "03/02/1991 a 07/07/1996",
-    local: "IMEPE – Sistema de Educação Especial",
-    cargo: "Psicólogo Escolar",
-  },
-  { periodo: "1991 a 1998", local: "Centro de Tratamento Preventivo" },
-  {
-    periodo: "13/04/1994 a 07/06/2000",
-    local: "Caixa de Assistência dos Funcionários do Banco do Brasil (CASSI)",
-  },
-  { periodo: "1998", local: "CREIA – Centro de Reeducação Infanto Juvenil" },
-  { local: "Colégio Horizontes" },
-  { periodo: "24 anos de atuação", local: "Grupo Vida" },
 ];
 
 const associacoesDrCarlos = [
@@ -57,7 +33,6 @@ const associacoesDrCarlos = [
 
 const curriculoDrCarlos = [
   { titulo: "Formação e especializações", texto: <Marcadores itens={formacaoDrCarlos} /> },
-  { titulo: "Trajetória profissional", texto: <Trajetoria etapas={trajetoriaDrCarlos} /> },
   { titulo: "Associações profissionais", texto: <Marcadores itens={associacoesDrCarlos} /> },
 ];
 
@@ -94,18 +69,20 @@ export function Team() {
       {/* 1º PROFISSIONAL: IMAGEM NA ESQUERDA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row">
         <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
-          <img
-            src={portrait}
-            alt="Retrato em preto e branco do Dr. Carlos Gattini"
-            width={1600}
-            height={1195}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover opacity-95 grayscale"
-          />
-          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
+          <Quadro>
+            <img
+              src={portrait}
+              alt="Retrato em preto e branco do Dr. Carlos Gattini"
+              width={1600}
+              height={1195}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover opacity-95 grayscale"
+            />
+            <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
 
-          <Selo numero="36" legenda="Anos de prática clínica" lado="direita" />
+            <Selo numero="36" legenda="Anos de prática clínica" lado="direita" />
+          </Quadro>
         </div>
 
         <div className="flex w-full items-center justify-center bg-background px-6 py-24 md:w-1/2 md:px-16 md:py-28 lg:px-24">
@@ -125,7 +102,7 @@ export function Team() {
 
             <Lista itens={areasDrCarlos} rotulo="Áreas de atuação" />
 
-            <Areas itens={curriculoDrCarlos} rotulo="Formação e trajetória" />
+            <Areas itens={curriculoDrCarlos} rotulo="Formação e associações" />
 
             <BotaoWhatsApp mensagem={msgDrCarlos} rotulo="Agendar com o Dr. Carlos" />
           </Reveal>
@@ -135,23 +112,25 @@ export function Team() {
       {/* 2º PROFISSIONAL: IMAGEM NA DIREITA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row-reverse">
         <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
-          <img
-            src={retratoHeloisa}
-            alt="Retrato de Heloísa Kohatsu-Muniz"
-            width={1493}
-            height={2000}
-            loading="lazy"
-            decoding="async"
-            // Presa às bordas do quadro (absolute inset-0), a foto o preenche em
-            // qualquer tela: no celular o quadro tem altura mínima mas não fixa,
-            // e h-full sozinho deixava a foto na altura natural, com uma faixa
-            // vazia embaixo. O rosto fica no terço superior do retrato, por isso
-            // o corte é ancorado ali, e não no centro.
-            className="absolute inset-0 h-full w-full object-cover object-[center_22%] opacity-95 grayscale"
-          />
-          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-background/70 via-transparent to-transparent md:block" />
+          <Quadro>
+            <img
+              src={retratoHeloisa}
+              alt="Retrato de Heloísa Kohatsu-Muniz"
+              width={1493}
+              height={2000}
+              loading="lazy"
+              decoding="async"
+              // Presa às bordas do quadro (absolute inset-0), a foto o preenche em
+              // qualquer tela: no celular o quadro tem altura mínima mas não fixa,
+              // e h-full sozinho deixava a foto na altura natural, com uma faixa
+              // vazia embaixo. O rosto fica no terço superior do retrato, por isso
+              // o corte é ancorado ali, e não no centro.
+              className="absolute inset-0 h-full w-full object-cover object-[center_22%] opacity-95 grayscale"
+            />
+            <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-background/70 via-transparent to-transparent md:block" />
 
-          <Selo numero="3+" legenda="Anos em avaliação neuropsicológica" lado="esquerda" />
+            <Selo numero="3+" legenda="Anos em avaliação neuropsicológica" lado="esquerda" />
+          </Quadro>
         </div>
 
         <div className="flex w-full items-center justify-center bg-background px-6 py-24 md:w-1/2 md:px-16 md:py-28 lg:px-24">
@@ -181,6 +160,22 @@ export function Team() {
   );
 }
 
+/**
+ * Moldura da foto no desktop: tem a altura da tela e fica presa enquanto o
+ * texto ao lado rola.
+ *
+ * Antes a foto tinha a altura da coluna de texto inteira. Como ela é recortada
+ * para cobrir o espaço, cada item de formação ou associações aberto deixava a
+ * coluna mais alta e a foto mais ampliada — chegava quase ao dobro com tudo
+ * aberto. Presa à altura da tela, ela não muda de tamanho, abra o que abrir.
+ *
+ * No celular a foto fica acima do texto e não muda com ele. Ali a moldura não
+ * faz nada: foto e selo se prendem às bordas do bloco de fora.
+ */
+function Quadro({ children }: { children: ReactNode }) {
+  return <div className="md:sticky md:top-0 md:h-screen">{children}</div>;
+}
+
 function Selo({
   numero,
   legenda,
@@ -192,11 +187,11 @@ function Selo({
 }) {
   return (
     <div
-      className={`absolute bottom-12 border border-gold/20 bg-background/70 p-8 backdrop-blur-xl ${
-        lado === "direita" ? "right-8 md:right-12" : "left-8 md:left-12"
+      className={`absolute bottom-6 border border-gold/20 bg-background/70 p-5 backdrop-blur-xl md:bottom-12 md:p-8 ${
+        lado === "direita" ? "right-6 md:right-12" : "left-6 md:left-12"
       }`}
     >
-      <div className="mb-1 text-4xl font-extralight text-gold">{numero}</div>
+      <div className="mb-1 text-3xl font-extralight md:text-4xl text-gold">{numero}</div>
       <div className="max-w-[14rem] text-[9px] tracking-[0.4em] text-foreground/50 uppercase">
         {legenda}
       </div>
@@ -235,25 +230,6 @@ function Marcadores({ itens }: { itens: string[] }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-type Etapa = { periodo?: string; local: string; cargo?: string };
-
-/** Experiências em ordem cronológica, com o período acima de cada uma. */
-function Trajetoria({ etapas }: { etapas: Etapa[] }) {
-  return (
-    <ol className="space-y-4">
-      {etapas.map((e) => (
-        <li key={e.local}>
-          {e.periodo && (
-            <span className="block text-xs tracking-[0.15em] text-gold">{e.periodo}</span>
-          )}
-          <span className="text-foreground/80">{e.local}</span>
-          {e.cargo && <> · {e.cargo}</>}
-        </li>
-      ))}
-    </ol>
   );
 }
 
