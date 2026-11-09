@@ -61,7 +61,7 @@ export function About() {
             <p>
               Fundada pelo <span className="text-foreground">Dr. Carlos Gattini</span>, a Clínica
               Gattini nasceu do compromisso de unir rigor científico e cuidado humano — tornando-se
-              referência no acompanhamento psicológico e neuropsicológico de alto padrão.
+              referência no acompanhamento psicológico de alto padrão.
             </p>
             <p>
               Cada detalhe da experiência, do primeiro contato ao acompanhamento de longo prazo, é
