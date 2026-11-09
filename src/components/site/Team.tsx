@@ -16,37 +16,13 @@ const areasDrCarlos = [
 ];
 
 // Currículo do Dr. Carlos. Cada item se limita ao que ele informou, sem
-// descrever técnica: onde o cargo ou o período não foi informado, o item sai
-// sem ele, em vez de ganhar um valor suposto. As datas da trajetória ficam
-// exatamente como vieram.
+// descrever técnica nem acrescentar dado suposto.
 const formacaoDrCarlos = [
   "Psicólogo pela UFMG (1989)",
   "Especialização em Psicologia Clínica, Psicopatologia e Psicoterapia Infantil pela Faculdade de Medicina da Universidade Federal de Minas Gerais – UFMG (1996–1997)",
   "Especialização em Adolescência pela Faculdade de Ciências Médicas de Minas Gerais (2000)",
   "Especialista em Psicologia Clínica e em Psicologia Escolar pelo Conselho Regional de Psicologia de Minas Gerais (2001)",
   "Formação em Terapia Cognitiva e em Terapia do Esquema pela Wainer Psicologia Cognitiva, de Porto Alegre, credenciada pela International Society of Schema Therapy (2014)",
-];
-
-const trajetoriaDrCarlos: Etapa[] = [
-  { periodo: "Desde 1990", local: "Atuação em Psicologia Clínica" },
-  {
-    periodo: "01/02/1990 a 28/03/1993",
-    local: "Psiquê Psicologia Clínica e Aplicada",
-    cargo: "Psicólogo Clínico",
-  },
-  {
-    periodo: "03/02/1991 a 07/07/1996",
-    local: "IMEPE – Sistema de Educação Especial",
-    cargo: "Psicólogo Escolar",
-  },
-  { periodo: "1991 a 1998", local: "Centro de Tratamento Preventivo" },
-  {
-    periodo: "13/04/1994 a 07/06/2000 · 6 anos",
-    local: "Caixa de Assistência dos Funcionários do Banco do Brasil (CASSI)",
-  },
-  { periodo: "1998", local: "CREIA – Centro de Reeducação Infanto Juvenil" },
-  { local: "Colégio Horizontes" },
-  { periodo: "24 anos de atuação", local: "Grupo Vida" },
 ];
 
 const associacoesDrCarlos = [
@@ -57,7 +33,6 @@ const associacoesDrCarlos = [
 
 const curriculoDrCarlos = [
   { titulo: "Formação e especializações", texto: <Marcadores itens={formacaoDrCarlos} /> },
-  { titulo: "Trajetória profissional", texto: <Trajetoria etapas={trajetoriaDrCarlos} /> },
   { titulo: "Associações profissionais", texto: <Marcadores itens={associacoesDrCarlos} /> },
 ];
 
@@ -127,7 +102,7 @@ export function Team() {
 
             <Lista itens={areasDrCarlos} rotulo="Áreas de atuação" />
 
-            <Areas itens={curriculoDrCarlos} rotulo="Formação e trajetória" />
+            <Areas itens={curriculoDrCarlos} rotulo="Formação e associações" />
 
             <BotaoWhatsApp mensagem={msgDrCarlos} rotulo="Agendar com o Dr. Carlos" />
           </Reveal>
@@ -190,7 +165,7 @@ export function Team() {
  * texto ao lado rola.
  *
  * Antes a foto tinha a altura da coluna de texto inteira. Como ela é recortada
- * para cobrir o espaço, cada item de formação ou trajetória aberto deixava a
+ * para cobrir o espaço, cada item de formação ou associações aberto deixava a
  * coluna mais alta e a foto mais ampliada — chegava quase ao dobro com tudo
  * aberto. Presa à altura da tela, ela não muda de tamanho, abra o que abrir.
  *
@@ -255,25 +230,6 @@ function Marcadores({ itens }: { itens: string[] }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-type Etapa = { periodo?: string; local: string; cargo?: string };
-
-/** Experiências em ordem cronológica, com o período acima de cada uma. */
-function Trajetoria({ etapas }: { etapas: Etapa[] }) {
-  return (
-    <ol className="space-y-4">
-      {etapas.map((e) => (
-        <li key={e.local}>
-          {e.periodo && (
-            <span className="block text-xs tracking-[0.15em] text-gold">{e.periodo}</span>
-          )}
-          <span className="text-foreground/80">{e.local}</span>
-          {e.cargo && <> · {e.cargo}</>}
-        </li>
-      ))}
-    </ol>
   );
 }
 
