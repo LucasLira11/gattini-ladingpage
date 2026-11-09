@@ -1,6 +1,7 @@
 import { useId, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import portrait from "@/assets/dr-carlos.jpg";
+import retratoHeloisa from "@/assets/heloisa.jpg";
 import { Reveal } from "./Reveal";
 
 const WHATSAPP = "5531999340469";
@@ -63,13 +64,6 @@ const curriculoDrCarlos = [
 const msgDrCarlos =
   "Olá! Gostaria de saber sobre a disponibilidade de horários para o Dr. Carlos Gattini.";
 
-/**
- * Retrato da Heloísa. Enquanto a foto não chega, o painel mostra as iniciais
- * no lugar. Quando chegar: coloque o arquivo em src/assets, importe-o no topo
- * deste arquivo e atribua aqui — o resto do layout já está pronto.
- */
-const retratoHeloisa: string | undefined = undefined;
-
 const formacaoHeloisa = [
   "Psicóloga pela UFMG (2023)",
   "Especialista em Avaliação Psicológica e Diagnóstico pela PUC Minas (2024)",
@@ -99,7 +93,7 @@ export function Team() {
     <section id="corpo-clinico" className="flex flex-col">
       {/* 1º PROFISSIONAL: IMAGEM NA ESQUERDA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row">
-        <div className="relative h-[60vh] w-full bg-card md:h-auto md:min-h-screen md:w-1/2">
+        <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
           <Quadro>
             <img
               src={portrait}
@@ -108,7 +102,7 @@ export function Team() {
               height={1195}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover opacity-95 grayscale"
+              className="absolute inset-0 h-full w-full object-cover opacity-95 grayscale"
             />
             <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-background/70 via-transparent to-transparent md:block" />
 
@@ -142,37 +136,22 @@ export function Team() {
 
       {/* 2º PROFISSIONAL: IMAGEM NA DIREITA */}
       <article className="relative flex flex-col border-t border-gold/10 md:flex-row-reverse">
-        <div
-          className={`relative w-full bg-card md:h-auto md:min-h-screen md:w-1/2 ${
-            retratoHeloisa ? "h-[60vh]" : "h-[max(45vh,26rem)]"
-          }`}
-        >
+        <div className="relative min-h-[60vh] w-full bg-card md:min-h-screen md:w-1/2">
           <Quadro>
-            {retratoHeloisa ? (
-              <img
-                src={retratoHeloisa}
-                alt="Retrato de Heloísa Kohatsu-Muniz"
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover opacity-95 grayscale"
-              />
-            ) : (
-              // Sem foto ainda: as iniciais num quadro de fio dourado, no mesmo
-              // vocabulário do monograma da clínica. É provisório, mas não pode
-              // parecer quebrado. No celular o quadro centraliza só na parte de
-              // cima, acima do selo: centralizado no bloco inteiro, o selo o
-              // cobria pela metade.
-              <div
-                className="absolute inset-x-0 top-0 bottom-32 flex items-center justify-center md:bottom-0"
-                aria-hidden="true"
-              >
-                <div className="flex size-40 items-center justify-center border border-gold/50 md:size-52">
-                  <span className="text-5xl font-extralight tracking-[0.12em] text-offwhite/85 md:text-6xl">
-                    HK
-                  </span>
-                </div>
-              </div>
-            )}
+            <img
+              src={retratoHeloisa}
+              alt="Retrato de Heloísa Kohatsu-Muniz"
+              width={1493}
+              height={2000}
+              loading="lazy"
+              decoding="async"
+              // Presa às bordas do quadro (absolute inset-0), a foto o preenche em
+              // qualquer tela: no celular o quadro tem altura mínima mas não fixa,
+              // e h-full sozinho deixava a foto na altura natural, com uma faixa
+              // vazia embaixo. O rosto fica no terço superior do retrato, por isso
+              // o corte é ancorado ali, e não no centro.
+              className="absolute inset-0 h-full w-full object-cover object-[center_22%] opacity-95 grayscale"
+            />
             <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-background/70 via-transparent to-transparent md:block" />
 
             <Selo numero="3+" legenda="Anos em avaliação neuropsicológica" lado="esquerda" />
@@ -215,12 +194,11 @@ export function Team() {
  * coluna mais alta e a foto mais ampliada — chegava quase ao dobro com tudo
  * aberto. Presa à altura da tela, ela não muda de tamanho, abra o que abrir.
  *
- * No celular a foto fica acima do texto, num bloco de altura fixa, e não muda
- * com o texto; ali a moldura só repassa essa altura, e o selo continua
- * posicionado pelo bloco de fora.
+ * No celular a foto fica acima do texto e não muda com ele. Ali a moldura não
+ * faz nada: foto e selo se prendem às bordas do bloco de fora.
  */
 function Quadro({ children }: { children: ReactNode }) {
-  return <div className="h-full md:sticky md:top-0 md:h-screen">{children}</div>;
+  return <div className="md:sticky md:top-0 md:h-screen">{children}</div>;
 }
 
 function Selo({
