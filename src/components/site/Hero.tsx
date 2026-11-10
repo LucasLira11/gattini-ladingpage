@@ -23,10 +23,10 @@ export function Hero() {
 
           <Reveal delay={150}>
             <p className="mt-8 max-w-md text-lg leading-relaxed font-light text-foreground/70">
-              Mais de duas décadas dedicadas à psicologia e ao desenvolvimento humano. Ampliamos
-              nossas especializações para oferecer novas possibilidades de cuidado em saúde mental,
-              desenvolvimento e orientação, implementando serviços de neuropsicologia e orientação
-              vocacional.
+              Mais de duas décadas dedicadas à psicologia e ao desenvolvimento humano. Agora,
+              ampliamos nossas especializações para oferecer novas possibilidades de cuidado em
+              saúde mental, desenvolvimento e orientação, implementando serviços de neuropsicologia
+              e orientação vocacional.
             </p>
 
             <div className="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
